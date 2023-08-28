@@ -1,0 +1,272 @@
+<%= form_with(model: aim_core_map) do |form| %>
+  <% if aim_core_map.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(aim_core_map.errors.count, "error") %> prohibited this aim_core_map from being saved:</h2>
+
+      <ul>
+        <% aim_core_map.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :top_left_x, style: "display: block" %>
+    <%= form.text_field :top_left_x %>
+  </div>
+
+  <div>
+    <%= form.label :top_left_y, style: "display: block" %>
+    <%= form.text_field :top_left_y %>
+  </div>
+
+  <div>
+    <%= form.label :max_zoom, style: "display: block" %>
+    <%= form.number_field :max_zoom %>
+  </div>
+
+  <div>
+    <%= form.label :bottom_right_x, style: "display: block" %>
+    <%= form.text_field :bottom_right_x %>
+  </div>
+
+  <div>
+    <%= form.label :max_resolution, style: "display: block" %>
+    <%= form.text_field :max_resolution %>
+  </div>
+
+  <div>
+    <%= form.label :bottom_right_y, style: "display: block" %>
+    <%= form.text_field :bottom_right_y %>
+  </div>
+
+  <div>
+    <%= form.label :stores_show_from_zoom, style: "display: block" %>
+    <%= form.number_field :stores_show_from_zoom %>
+  </div>
+
+  <div>
+    <%= form.label :features_radius, style: "display: block" %>
+    <%= form.number_field :features_radius %>
+  </div>
+
+  <div>
+    <%= form.label :range, style: "display: block" %>
+    <%= form.number_field :range %>
+  </div>
+
+  <div>
+    <%= form.label :street, style: "display: block" %>
+    <%= form.text_field :street %>
+  </div>
+
+  <div>
+    <%= form.label :street_number, style: "display: block" %>
+    <%= form.number_field :street_number %>
+  </div>
+
+  <div>
+    <%= form.label :parent_id, style: "display: block" %>
+    <%= form.number_field :parent_id %>
+  </div>
+
+  <div>
+    <%= form.label :lft, style: "display: block" %>
+    <%= form.number_field :lft %>
+  </div>
+
+  <div>
+    <%= form.label :rgt, style: "display: block" %>
+    <%= form.number_field :rgt %>
+  </div>
+
+  <div>
+    <%= form.label :depth, style: "display: block" %>
+    <%= form.number_field :depth %>
+  </div>
+
+  <div>
+    <%= form.label :kind, style: "display: block" %>
+    <%= form.text_field :kind %>
+  </div>
+
+  <div>
+    <%= form.label :last_update, style: "display: block" %>
+    <%= form.datetime_field :last_update %>
+  </div>
+
+  <div>
+    <%= form.label :last_change, style: "display: block" %>
+    <%= form.datetime_field :last_change %>
+  </div>
+
+  <div>
+    <%= form.label :zoom_matrix, style: "display: block" %>
+    <%= form.text_field :zoom_matrix %>
+  </div>
+
+  <div>
+    <%= form.label :adjustment_data, style: "display: block" %>
+    <%= form.text_field :adjustment_data %>
+  </div>
+
+  <div>
+    <%= form.label :command_radius, style: "display: block" %>
+    <%= form.text_field :command_radius %>
+  </div>
+
+  <div>
+    <%= form.label :command_latitude, style: "display: block" %>
+    <%= form.text_field :command_latitude %>
+  </div>
+
+  <div>
+    <%= form.label :command_longitude, style: "display: block" %>
+    <%= form.text_field :command_longitude %>
+  </div>
+
+  <div>
+    <%= form.label :time_between_notifications, style: "display: block" %>
+    <%= form.text_field :time_between_notifications %>
+  </div>
+
+  <div>
+    <%= form.label :max_notifications_per_period, style: "display: block" %>
+    <%= form.number_field :max_notifications_per_period %>
+  </div>
+
+  <div>
+    <%= form.label :notifications_time_period, style: "display: block" %>
+    <%= form.text_field :notifications_time_period %>
+  </div>
+
+  <div>
+    <%= form.label :scaled_stores, style: "display: block" %>
+    <%= form.check_box :scaled_stores %>
+  </div>
+
+  <div>
+    <%= form.label :properties, style: "display: block" %>
+    <%= form.text_field :properties %>
+  </div>
+
+  <div>
+    <%= form.label :until_zoom, style: "display: block" %>
+    <%= form.number_field :until_zoom %>
+  </div>
+
+  <div>
+    <%= form.label :real_min_zoom, style: "display: block" %>
+    <%= form.number_field :real_min_zoom %>
+  </div>
+
+  <div>
+    <%= form.label :initial_zoom, style: "display: block" %>
+    <%= form.number_field :initial_zoom %>
+  </div>
+
+  <div>
+    <%= form.label :authorization_user_manual_file_name, style: "display: block" %>
+    <%= form.text_field :authorization_user_manual_file_name %>
+  </div>
+
+  <div>
+    <%= form.label :authorization_user_manual_content_type, style: "display: block" %>
+    <%= form.text_field :authorization_user_manual_content_type %>
+  </div>
+
+  <div>
+    <%= form.label :authorization_user_manual_file_size, style: "display: block" %>
+    <%= form.number_field :authorization_user_manual_file_size %>
+  </div>
+
+  <div>
+    <%= form.label :authorization_user_manual_updated_at, style: "display: block" %>
+    <%= form.datetime_field :authorization_user_manual_updated_at %>
+  </div>
+
+  <div>
+    <%= form.label :loader_version, style: "display: block" %>
+    <%= form.number_field :loader_version %>
+  </div>
+
+  <div>
+    <%= form.label :tiles_version, style: "display: block" %>
+    <%= form.number_field :tiles_version %>
+  </div>
+
+  <div>
+    <%= form.label :incident_positioning_system, style: "display: block" %>
+    <%= form.text_field :incident_positioning_system %>
+  </div>
+
+  <div>
+    <%= form.label :country_code, style: "display: block" %>
+    <%= form.text_field :country_code %>
+  </div>
+
+  <div>
+    <%= form.label :region_code, style: "display: block" %>
+    <%= form.text_field :region_code %>
+  </div>
+
+  <div>
+    <%= form.label :command_classification_id, style: "display: block" %>
+    <%= form.number_field :command_classification_id %>
+  </div>
+
+  <div>
+    <%= form.label :command_district_id, style: "display: block" %>
+    <%= form.number_field :command_district_id %>
+  </div>
+
+  <div>
+    <%= form.label :command_orientation, style: "display: block" %>
+    <%= form.text_field :command_orientation %>
+  </div>
+
+  <div>
+    <%= form.label :fusion_table_on_start, style: "display: block" %>
+    <%= form.check_box :fusion_table_on_start %>
+  </div>
+
+  <div>
+    <%= form.label :time_zone, style: "display: block" %>
+    <%= form.text_field :time_zone %>
+  </div>
+
+  <div>
+    <%= form.label :deleted_at, style: "display: block" %>
+    <%= form.datetime_field :deleted_at %>
+  </div>
+
+  <div>
+    <%= form.label :sales_room_m2, style: "display: block" %>
+    <%= form.text_field :sales_room_m2 %>
+  </div>
+
+  <div>
+    <%= form.label :property_type, style: "display: block" %>
+    <%= form.number_field :property_type %>
+  </div>
+
+  <div>
+    <%= form.label :cost_center, style: "display: block" %>
+    <%= form.text_field :cost_center %>
+  </div>
+
+  <div>
+    <%= form.label :show_custom_fields, style: "display: block" %>
+    <%= form.check_box :show_custom_fields %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

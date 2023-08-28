@@ -1,5 +1,5 @@
 module Aim
   def self.table_name_prefix
-    "aim_"
+    'aim_'
   end
 end
