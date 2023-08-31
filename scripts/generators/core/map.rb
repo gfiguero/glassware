@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class MapScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold aim/core/map'
-  BASE_COMMAND_DESTROY = 'rails d scaffold aim/core/map'
+  BASE_COMMAND_GENERATE = 'rails g scaffold aim/core/map "aim_maps"'
+  BASE_COMMAND_DESTROY = 'rails d scaffold aim/core/map aim_maps'
 
   FIELDS = [
     'name:string',
@@ -22,16 +22,16 @@ class MapScaffold
     'rgt:integer',
     'depth:integer',
     'kind:string',
-    # '`alias`:string', #reserved word
-    # 'created_at:datetime', #redefined field
-    # 'updated_at:datetime', #redefined field
+    'alias:string', #reserved word
+    'created_at:datetime', #redefined field
+    'updated_at:datetime', #redefined field
     'last_update:datetime',
     'last_change:datetime',
     'zoom_matrix:hstore',
     'adjustment_data:hstore',
-    'command_radius:float',
-    'command_latitude:float',
-    'command_longitude:float',
+    'map_radius:float',
+    'map_latitude:float',
+    'map_longitude:float',
     'time_between_notifications:float',
     'max_notifications_per_period:integer',
     'notifications_time_period:float',
@@ -49,9 +49,9 @@ class MapScaffold
     'incident_positioning_system:string',
     'country_code:string',
     'region_code:string',
-    'command_classification_id:integer:index',
-    'command_district_id:integer:index',
-    'command_orientation:float',
+    'map_classification_id:integer:index',
+    'map_district_id:integer:index',
+    'map_orientation:float',
     'fusion_table_on_start:boolean',
     'time_zone:string:index',
     'deleted_at:datetime:index',
@@ -62,7 +62,7 @@ class MapScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND_GENERATE} #{FIELDS.join(' ')} --skip-migration"
+    @command = "#{BASE_COMMAND_GENERATE} #{FIELDS.join(' ')} --skip-migration --force"
   end
 
   def destroy_command
