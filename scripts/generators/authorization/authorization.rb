@@ -1,16 +1,20 @@
-# frozen_string_literal: true
-
 class AuthorizationScaffold
+  BASE_COMMAND_GENERATE = 'rails g scaffold aim/authorization/authorization'.freeze
+  BASE_COMMAND_DESTROY = 'rails d scaffold aim/authorization/authorization'.freeze
+
+  FIELDS = [
+    'created_at:datetime',
+    'updated_at:datetime',
+  ].freeze
+
   def generate_command
-    command = 'rails g scaffold aim/authorization/authorization '
-    command = "#{command}created_at:datetime "
-    command = "#{command}updated_at:datetime "
-    command = "#{command}--skip-migration "
-    @command = command
+    @command = "#{BASE_COMMAND_GENERATE} #{FIELDS.join(' ')} --skip-migration"
   end
 
   def destroy_command
-    command = 'rails d scaffold aim/authorization/authorization '
-    @command = command
+    @command = BASE_COMMAND_DESTROY
   end
+
+  # If you ever want to print or access the command outside the class:
+  attr_reader :command
 end

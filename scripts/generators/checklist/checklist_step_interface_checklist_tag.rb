@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
-class TaskScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold aim/task/task'
-  BASE_COMMAND_DESTROY = 'rails d scaffold aim/task/task'
+class ChecklistStepInterfaceChecklistTagScaffold
+  BASE_COMMAND_GENERATE = 'rails g scaffold ChecklistStepInterfaceChecklistTag'
+  BASE_COMMAND_DESTROY = 'rails d scaffold ChecklistStepInterfaceChecklistTag'
 
   FIELDS = [
+    'checklist_step_interface_id:integer',
+    'checklist_tag_id:integer',
     'created_at:datetime',
     'updated_at:datetime',
+    'grade_weight:float'
   ].freeze
 
   def generate_command
@@ -17,6 +20,5 @@ class TaskScaffold
     @command = BASE_COMMAND_DESTROY
   end
 
-  # If you ever want to print or access the command outside the class:
   attr_reader :command
 end

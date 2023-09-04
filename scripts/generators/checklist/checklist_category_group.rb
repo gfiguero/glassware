@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
-class TaskScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold aim/task/task'
-  BASE_COMMAND_DESTROY = 'rails d scaffold aim/task/task'
+class ChecklistCategoryGroupScaffold
+  BASE_COMMAND_GENERATE = 'rails g scaffold ChecklistCategoryGroup'
+  BASE_COMMAND_DESTROY = 'rails d scaffold ChecklistCategoryGroup'
 
   FIELDS = [
+    'group_id:integer',
+    'checklist_category_id:integer',
     'created_at:datetime',
     'updated_at:datetime',
+    'relation_kind:string'
   ].freeze
 
   def generate_command
@@ -14,7 +17,7 @@ class TaskScaffold
   end
 
   def destroy_command
-    @command = BASE_COMMAND_DESTROY
+    @command = "#{BASE_COMMAND_DESTROY}"
   end
 
   # If you ever want to print or access the command outside the class:
