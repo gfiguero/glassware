@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Roles</h1>
+
+<div id="aim_core_roles">
+  <% @aim_core_roles.each do |aim_core_role| %>
+    <%= render aim_core_role %>
+    <p>
+      <%= link_to "Show this role", aim_core_role %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New role", new_aim_core_role_path %>

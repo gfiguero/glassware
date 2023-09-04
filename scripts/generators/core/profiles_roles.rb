@@ -2,6 +2,8 @@
 
 class ProfilesRolesScaffold
   BASE_COMMAND = 'rails g scaffold aim/core/profiles_roles'
+  DESTROY_COMMAND = 'rails d scaffold aim/core/profiles_roles'
+  TABLE_NAME = 'aim_profiles_roles'
 
   FIELDS = [
     'role:references',
@@ -11,11 +13,11 @@ class ProfilesRolesScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND} #{FIELDS.join(' ')} --skip-migration"
+    @command = "#{BASE_COMMAND} #{TABLE_NAME} #{FIELDS.join(' ')} --skip-migration"
   end
 
   def destroy_command
-    @command = 'rails d scaffold aim/core/profiles_roles'
+    @command = "#{DESTROY_COMMAND} #{TABLE_NAME}"
   end
 
   # If you ever want to print or access the command outside the class:

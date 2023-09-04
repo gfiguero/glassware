@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+
+<div id="aim_core_users">
+  <% @aim_core_users.each do |aim_core_user| %>
+    <%= render aim_core_user %>
+    <p>
+      <%= link_to "Show this user", aim_core_user %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New user", new_aim_core_user_path %>

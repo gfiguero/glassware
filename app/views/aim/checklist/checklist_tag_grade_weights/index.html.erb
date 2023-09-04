@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Checklist tag grade weights</h1>
+
+<div id="aim_checklist_checklist_tag_grade_weights">
+  <% @aim_checklist_checklist_tag_grade_weights.each do |aim_checklist_checklist_tag_grade_weight| %>
+    <%= render aim_checklist_checklist_tag_grade_weight %>
+    <p>
+      <%= link_to "Show this checklist tag grade weight", aim_checklist_checklist_tag_grade_weight %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New checklist tag grade weight", new_aim_checklist_checklist_tag_grade_weight_path %>

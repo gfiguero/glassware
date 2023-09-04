@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @aim_core_map %>
+
+<div>
+  <%= link_to "Edit this map", edit_aim_core_map_path(@aim_core_map) %> |
+  <%= link_to "Back to maps", aim_core_maps_path %>
+
+  <%= button_to "Destroy this map", @aim_core_map, method: :delete %>
+</div>

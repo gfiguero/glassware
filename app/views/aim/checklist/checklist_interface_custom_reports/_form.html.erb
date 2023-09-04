@@ -1,0 +1,27 @@
+<%= form_with(model: aim_checklist_checklist_interface_custom_report) do |form| %>
+  <% if aim_checklist_checklist_interface_custom_report.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(aim_checklist_checklist_interface_custom_report.errors.count, "error") %> prohibited this aim_checklist_checklist_interface_custom_report from being saved:</h2>
+
+      <ul>
+        <% aim_checklist_checklist_interface_custom_report.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :custom_report_id, style: "display: block" %>
+    <%= form.number_field :custom_report_id %>
+  </div>
+
+  <div>
+    <%= form.label :checklist_interface_id, style: "display: block" %>
+    <%= form.number_field :checklist_interface_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

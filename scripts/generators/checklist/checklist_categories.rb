@@ -3,6 +3,7 @@
 class ChecklistCategoryScaffold
   BASE_COMMAND_GENERATE = 'rails g scaffold aim/checklist/ChecklistCategory'
   BASE_COMMAND_DESTROY = 'rails d scaffold aim/checklist/ChecklistCategory'
+  TABLE_NAME = 'aim_checklist_categories'
 
   FIELDS = [
     'map_id:integer',
@@ -18,11 +19,11 @@ class ChecklistCategoryScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND_GENERATE} #{FIELDS.join(' ')} --skip-migration"
+    @command = "#{BASE_COMMAND_GENERATE} #{TABLE_NAME} #{FIELDS.join(' ')} --skip-migration"
   end
 
   def destroy_command
-    @command = "#{BASE_COMMAND_DESTROY}"
+    @command = "#{BASE_COMMAND_DESTROY} #{TABLE_NAME}"
   end
 
   # If you ever want to print or access the command outside the class:

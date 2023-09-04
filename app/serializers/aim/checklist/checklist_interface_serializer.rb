@@ -1,0 +1,3 @@
+class Aim::Checklist::ChecklistInterfaceSerializer < ActiveModel::Serializer
+  attributes :id, :name, :grade_min, :grade_max, :grade_interval, :is_for_store, :created_at, :updated_at, :icon_file_name, :icon_content_type, :icon_file_size, :icon_updated_at, :autogenerate_incident, :is_for_service, :is_for_infrastructure, :checklist_category_id, :deleted_at, :user_start_position, :user_finish_position, :expiration_time, :is_section_weight, :show_skip_steps, :show_section_of_skip_steps, :show_pdf_skip_steps, :show_pdf_section_of_skip_steps, :aim_concept_id, :add_photo_from_gallery, :show_pdf_unsuccess_step_only
+end

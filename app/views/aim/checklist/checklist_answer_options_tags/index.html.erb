@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Checklist answer options tags</h1>
+
+<div id="aim_checklist_checklist_answer_options_tags">
+  <% @aim_checklist_checklist_answer_options_tags.each do |aim_checklist_checklist_answer_options_tag| %>
+    <%= render aim_checklist_checklist_answer_options_tag %>
+    <p>
+      <%= link_to "Show this checklist answer options tag", aim_checklist_checklist_answer_options_tag %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New checklist answer options tag", new_aim_checklist_checklist_answer_options_tag_path %>

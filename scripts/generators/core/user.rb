@@ -2,6 +2,8 @@
 
 class UserScaffold
   BASE_COMMAND = 'rails g scaffold aim/core/user'
+  DESTROY_COMMAND = 'rails d scaffold aim/core/user'
+  TABLE_NAME = 'aim_users'
 
   FIELDS = [
     'serial_number:float',
@@ -58,11 +60,11 @@ class UserScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND} #{FIELDS.join(' ')} --skip-migration"
+    @command = "#{BASE_COMMAND} #{TABLE_NAME} #{FIELDS.join(' ')} --skip-migration"
   end
 
   def destroy_command
-    @command = 'rails d scaffold aim/core/user'
+    @command = "#{DESTROY_COMMAND} #{TABLE_NAME}"
   end
 
   # If you ever want to print or access the command outside the class:
