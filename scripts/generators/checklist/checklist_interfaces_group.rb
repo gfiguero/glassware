@@ -5,8 +5,8 @@ class ChecklistInterfaceGroupScaffold
   BASE_COMMAND_DESTROY = 'rails d scaffold ChecklistInterfaceGroup'
 
   FIELDS = [
-    'checklist_interface_id:integer {null: false}',
-    'group_id:integer {null: false}',
+    'checklist_interface_id:integer',
+    'group_id:integer',
   ].freeze
 
   def generate_command
