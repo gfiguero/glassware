@@ -1,2 +1,6 @@
-module Aim::Core::MapsHelper
+module Aim
+  module Core
+    module MapsHelper
+    end
+  end
 end

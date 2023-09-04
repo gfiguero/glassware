@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "rails/generators/base"
-require "rails/generators/generated_attribute"
+require 'rails/generators/base'
+require 'rails/generators/generated_attribute'
 
 module Rails
   module Generators
@@ -21,143 +21,172 @@ module Rails
       # Overrides <tt>Thor::Actions#template</tt> so it can tell if
       # a template is currently being created.
       no_tasks do
-        def template(source, *args, &block)
+        def template(source, *args, &)
           inside_template do
             Rails::Generators.add_generated_file(super)
           end
         end
 
         def js_template(source, destination)
-          template(source + ".js", destination + ".js")
+          template("#{source}.js", "#{destination}.js")
         end
       end
 
-      private
+      class << self
+        private
+
         attr_reader :file_name
 
         # FIXME: We are avoiding to use alias because a bug on thor that make
         # this method public and add it to the task list.
-        def singular_name # :doc:
+        # :doc:
+        def singular_name
           file_name
         end
 
-        def inside_template # :doc:
+        # :doc:
+        def inside_template
           @inside_template = true
           yield
         ensure
           @inside_template = false
         end
 
-        def inside_template? # :doc:
+        # :doc:
+        def inside_template?
           @inside_template
         end
 
-        def file_path # :doc:
-          @file_path ||= (class_path + [file_name]).join("/")
+        # :doc:
+        def file_path
+          @file_path ||= (class_path + [file_name]).join('/')
         end
 
-        def class_path # :doc:
+        # :doc:
+        def class_path
           inside_template? || !namespaced? ? regular_class_path : namespaced_class_path
         end
 
-        def regular_class_path # :doc:
+        # :doc:
+        def regular_class_path
           @class_path
         end
 
-        def namespaced_class_path # :doc:
+        # :doc:
+        def namespaced_class_path
           @namespaced_class_path ||= namespace_dirs + @class_path
         end
 
-        def class_name # :doc:
-          (class_path + [file_name]).map!(&:camelize).join("::")
+        # :doc:
+        def class_name
+          (class_path + [file_name]).map!(&:camelize).join('::')
         end
 
-        def human_name # :doc:
+        # :doc:
+        def human_name
           @human_name ||= singular_name.humanize
         end
 
-        def plural_name # :doc:
+        # :doc:
+        def plural_name
           @plural_name ||= singular_name.pluralize
         end
 
-        def i18n_scope # :doc:
-          @i18n_scope ||= file_path.tr("/", ".")
+        # :doc:
+        def i18n_scope
+          @i18n_scope ||= file_path.tr('/', '.')
         end
 
-        def table_name # :doc:
+        # :doc:
+        def table_name
           @table_name ||= begin
             base = pluralize_table_names? ? plural_name : singular_name
-            (class_path + [base]).join("_")
+            (class_path + [base]).join('_')
           end
         end
 
-        def uncountable? # :doc:
+        # :doc:
+        def uncountable?
           singular_name == plural_name
         end
 
-        def index_helper(type: nil) # :doc:
-          [plural_route_name, ("index" if uncountable?), type].compact.join("_")
+        # :doc:
+        def index_helper(type: nil)
+          [plural_route_name, ('index' if uncountable?), type].compact.join('_')
         end
 
-        def show_helper(arg = "@#{singular_table_name}", type: :url) # :doc:
+        # :doc:
+        def show_helper(arg = "@#{singular_table_name}", type: :url)
           "#{singular_route_name}_#{type}(#{arg})"
         end
 
-        def edit_helper(...) # :doc:
+        # :doc:
+        def edit_helper(...)
           "edit_#{show_helper(...)}"
         end
 
-        def new_helper(type: :url) # :doc:
+        # :doc:
+        def new_helper(type: :url)
           "new_#{singular_route_name}_#{type}"
         end
 
-        def singular_table_name # :doc:
+        # :doc:
+        def singular_table_name
           @singular_table_name ||= (pluralize_table_names? ? table_name.singularize : table_name)
         end
 
-        def plural_table_name # :doc:
+        # :doc:
+        def plural_table_name
           @plural_table_name ||= (pluralize_table_names? ? table_name : table_name.pluralize)
         end
 
-        def plural_file_name # :doc:
+        # :doc:
+        def plural_file_name
           @plural_file_name ||= file_name.pluralize
         end
 
-        def fixture_file_name # :doc:
+        # :doc:
+        def fixture_file_name
           @fixture_file_name ||= (pluralize_table_names? ? plural_file_name : file_name)
         end
 
-        def route_url # :doc:
-          @route_url ||= controller_class_path.collect { |dname| "/" + dname }.join + "/" + plural_file_name
+        # :doc:
+        def route_url
+          @route_url ||= "#{controller_class_path.map { |dname| "/#{dname}" }.join}/#{plural_file_name}"
         end
 
-        def url_helper_prefix # :doc:
-          @url_helper_prefix ||= (class_path + [file_name]).join("_")
+        # :doc:
+        def url_helper_prefix
+          @url_helper_prefix ||= (class_path + [file_name]).join('_')
         end
 
         # Tries to retrieve the application name or simply return application.
-        def application_name # :doc:
+        # :doc:
+        def application_name
           if defined?(Rails) && Rails.application
-            Rails.application.class.name.split("::").first.underscore
+            Rails.application.class.name.split('::').first.underscore
           else
-            "application"
+            'application'
           end
         end
 
-        def redirect_resource_name # :doc:
-          model_resource_name(prefix: "@")
+        # :doc:
+        def redirect_resource_name
+          model_resource_name(prefix: '@')
         end
 
-        def model_resource_name(base_name = singular_table_name, prefix: "") # :doc:
+        # :doc:
+        def model_resource_name(base_name = singular_table_name, prefix: '')
           resource_name = "#{prefix}#{base_name}"
           if options[:model_name]
-            "[#{controller_class_path.map { |name| ":" + name }.join(", ")}, #{resource_name}]"
+            "[#{controller_class_path.map { |name| ":#{name}" }.join(', ')}, #{resource_name}]"
           else
             resource_name
           end
         end
 
-        def singular_route_name # :doc:
+        # :doc:
+        def singular_route_name
           if options[:model_name]
             "#{controller_class_path.join('_')}_#{singular_table_name}"
           else
@@ -165,7 +194,8 @@ module Rails
           end
         end
 
-        def plural_route_name # :doc:
+        # :doc:
+        def plural_route_name
           if options[:model_name]
             "#{controller_class_path.join('_')}_#{plural_table_name}"
           else
@@ -174,7 +204,7 @@ module Rails
         end
 
         def assign_names!(name)
-          @class_path = name.include?("/") ? name.split("/") : name.split("::")
+          @class_path = name.include?('/') ? name.split('/') : name.split('::')
           @class_path.map!(&:underscore)
           @file_name = @class_path.pop
         end
@@ -186,19 +216,22 @@ module Rails
           end
         end
 
-        def attributes_names # :doc:
+        # :doc:
+        def attributes_names
           @attributes_names ||= attributes.each_with_object([]) do |a, names|
             names << a.column_name
-            names << "password_confirmation" if a.password_digest?
+            names << 'password_confirmation' if a.password_digest?
             names << "#{a.name}_type" if a.polymorphic?
           end
         end
 
-        def pluralize_table_names? # :doc:
+        # :doc:
+        def pluralize_table_names?
           !defined?(ActiveRecord::Base) || ActiveRecord::Base.pluralize_table_names
         end
 
-        def mountable_engine? # :doc:
+        # :doc:
+        def mountable_engine?
           defined?(ENGINE_ROOT) && namespaced?
         end
 
@@ -212,17 +245,19 @@ module Rails
         # If the generator is invoked with class name Admin, it will check for
         # the presence of "AdminDecorator".
         #
-        def self.check_class_collision(options = {}) # :doc:
-          define_method :check_class_collision do
+        # :doc:
+        def self.check_class_collision(options = {})
+          define_method(:check_class_collision) do
             name = if respond_to?(:controller_class_name, true) # for ResourceHelpers
               controller_class_name
             else
               class_name
             end
 
-            class_collisions "#{options[:prefix]}#{name}#{options[:suffix]}"
+            class_collisions("#{options[:prefix]}#{name}#{options[:suffix]}")
           end
         end
+      end
     end
   end
 end

@@ -9,33 +9,33 @@ namespace :generate do
     result = `#{MapScaffold.new.generate_command}`
     puts result unless result.strip.empty?
 
-#    puts 'Generating RoleScaffold...'
-#    result = `#{RoleScaffold.new.generate_command}`
-#    puts result unless result.strip.empty?
+    puts 'Generating RoleScaffold...'
+    result = `#{RoleScaffold.new.generate_command}`
+    puts result unless result.strip.empty?
 
-#    puts 'Generating ProfilesRolesScaffold...'
-#    result = `#{ProfilesRolesScaffold.new.generate_command}`
-#    puts result unless result.strip.empty?
+    puts 'Generating ProfilesRolesScaffold...'
+    result = `#{ProfilesRolesScaffold.new.generate_command}`
+    puts result unless result.strip.empty?
 
-#    puts 'Generating ProfileScaffold...'
-#    result = `#{ProfileScaffold.new.generate_command}`
-#    puts result unless result.strip.empty?
+    puts 'Generating ProfileScaffold...'
+    result = `#{ProfileScaffold.new.generate_command}`
+    puts result unless result.strip.empty?
 
-#    puts 'Generating GroupsProfilesScaffold...'
-#    result = `#{GroupsProfilesScaffold.new.generate_command}`
-#    puts result unless result.strip.empty?
+    puts 'Generating GroupsProfilesScaffold...'
+    result = `#{GroupsProfilesScaffold.new.generate_command}`
+    puts result unless result.strip.empty?
 
-#    puts 'Generating GroupScaffold...'
-#    result = `#{GroupScaffold.new.generate_command}`
-#    puts result unless result.strip.empty?
+    puts 'Generating GroupScaffold...'
+    result = `#{GroupScaffold.new.generate_command}`
+    puts result unless result.strip.empty?
 
-#    puts 'Generating UsersGroupsScaffold...'
-#    result = `#{UsersGroupsScaffold.new.generate_command}`
-#    puts result unless result.strip.empty?
+    puts 'Generating UsersGroupsScaffold...'
+    result = `#{UsersGroupsScaffold.new.generate_command}`
+    puts result unless result.strip.empty?
 
-#    puts 'Generating UserScaffold...'
-#    result = `#{UserScaffold.new.generate_command}`
-#    puts result unless result.strip.empty?
+    puts 'Generating UserScaffold...'
+    result = `#{UserScaffold.new.generate_command}`
+    puts result unless result.strip.empty?
 
     puts 'Finished generate:core task!'
   end

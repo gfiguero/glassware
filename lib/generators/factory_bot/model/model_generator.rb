@@ -1,5 +1,5 @@
-require "generators/factory_bot"
-require "factory_bot_rails"
+require 'generators/factory_bot'
+require 'factory_bot_rails'
 
 module FactoryBot
   module Generators
@@ -8,21 +8,21 @@ module FactoryBot
         :attributes,
         type: :array,
         default: [],
-        banner: "field:type field:type"
+        banner: 'field:type field:type',
       )
 
       class_option(
         :dir,
         type: :string,
-        default: "test/factories",
-        desc: "The directory or file root where factories belong"
+        default: 'test/factories',
+        desc: 'The directory or file root where factories belong',
       )
 
       class_option(
         :suffix,
         type: :string,
         default: nil,
-        desc: "Suffix to add factory file"
+        desc: 'Suffix to add factory file',
       )
 
       def create_fixture_file
@@ -36,35 +36,35 @@ module FactoryBot
       private
 
       def factories_file
-        options[:dir] + ".rb"
+        "#{options[:dir]}.rb"
       end
 
       def insert_factory_into_existing_file
         insert_into_file(
           factories_file,
           factory_definition,
-          after: "FactoryBot.define do\n"
+          after: "FactoryBot.define do\n",
         )
       end
 
       def create_factory_file
         file = File.join(options[:dir], "#{filename}.rb")
-        template "factories.erb", file
+        template('factories.erb', file)
       end
 
       def factory_definition
         <<~RUBY
             factory :#{factory_name}#{explicit_class_option} do
-          #{factory_attributes.gsub(/^/, "    ")}
+          #{factory_attributes.gsub(/^/, '    ')}
             end
 
         RUBY
       end
 
       def factory_attributes
-        attributes.map { |attribute|
+        attributes.map do |attribute|
           "add_attribute(:#{attribute.name}) { #{attribute.default.inspect} }"
-        }.join("\n")
+        end.join("\n")
       end
 
       def filename
@@ -72,7 +72,7 @@ module FactoryBot
           factory_bot_options[:filename_proc].call(table_name)
         else
           name = File.join(class_path, plural_name)
-          [name, filename_suffix].compact.join("_")
+          [name, filename_suffix].compact.join('_')
         end
       end
 

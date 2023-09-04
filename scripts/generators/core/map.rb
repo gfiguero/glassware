@@ -22,9 +22,9 @@ class MapScaffold
     'rgt:integer',
     'depth:integer',
     'kind:string',
-    'alias:string', #reserved word
-    'created_at:datetime', #redefined field
-    'updated_at:datetime', #redefined field
+    'alias:string', # reserved word
+    'created_at:datetime', # redefined field
+    'updated_at:datetime', # redefined field
     'last_update:datetime',
     'last_change:datetime',
     'zoom_matrix:hstore',
