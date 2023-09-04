@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @aim_checklist_checklist_answer_option %>
+
+<div>
+  <%= link_to "Edit this checklist answer option", edit_aim_checklist_checklist_answer_option_path(@aim_checklist_checklist_answer_option) %> |
+  <%= link_to "Back to checklist answer options", aim_checklist_checklist_answer_options_path %>
+
+  <%= button_to "Destroy this checklist answer option", @aim_checklist_checklist_answer_option, method: :delete %>
+</div>

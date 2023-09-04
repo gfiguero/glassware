@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @aim_core_profile %>
+
+<div>
+  <%= link_to "Edit this profile", edit_aim_core_profile_path(@aim_core_profile) %> |
+  <%= link_to "Back to profiles", aim_core_profiles_path %>
+
+  <%= button_to "Destroy this profile", @aim_core_profile, method: :delete %>
+</div>

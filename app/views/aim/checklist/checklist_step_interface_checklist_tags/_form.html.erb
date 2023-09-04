@@ -1,0 +1,37 @@
+<%= form_with(model: aim_checklist_checklist_step_interface_checklist_tag) do |form| %>
+  <% if aim_checklist_checklist_step_interface_checklist_tag.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(aim_checklist_checklist_step_interface_checklist_tag.errors.count, "error") %> prohibited this aim_checklist_checklist_step_interface_checklist_tag from being saved:</h2>
+
+      <ul>
+        <% aim_checklist_checklist_step_interface_checklist_tag.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :checklist_tag_id, style: "display: block" %>
+    <%= form.number_field :checklist_tag_id %>
+  </div>
+
+  <div>
+    <%= form.label :created_at, style: "display: block" %>
+    <%= form.datetime_field :created_at %>
+  </div>
+
+  <div>
+    <%= form.label :updated_at, style: "display: block" %>
+    <%= form.datetime_field :updated_at %>
+  </div>
+
+  <div>
+    <%= form.label :grade_weight, style: "display: block" %>
+    <%= form.text_field :grade_weight %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

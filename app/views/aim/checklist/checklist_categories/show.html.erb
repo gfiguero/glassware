@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @aim_checklist_checklist_category %>
+
+<div>
+  <%= link_to "Edit this checklist category", edit_aim_checklist_checklist_category_path(@aim_checklist_checklist_category) %> |
+  <%= link_to "Back to checklist categories", aim_checklist_checklist_categories_path %>
+
+  <%= button_to "Destroy this checklist category", @aim_checklist_checklist_category, method: :delete %>
+</div>

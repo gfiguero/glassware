@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ChecklistAnswerOptionScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold checklist_answer_option'
-  BASE_COMMAND_DESTROY = 'rails d scaffold checklist_answer_option'
+  BASE_COMMAND_GENERATE = 'rails g scaffold aim/checklist/ChecklistAnswerOption'
+  BASE_COMMAND_DESTROY = 'rails d scaffold aim/checklist/ChecklistAnswerOption'
 
   FIELDS = [
     'checklist_tag_id:integer',

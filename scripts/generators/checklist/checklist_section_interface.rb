@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ChecklistSectionInterfaceScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold ChecklistSectionInterface'
-  BASE_COMMAND_DESTROY = 'rails d scaffold ChecklistSectionInterface'
+  BASE_COMMAND_GENERATE = 'rails g scaffold aim/checklist/ChecklistSectionInterface'
+  BASE_COMMAND_DESTROY = 'rails d scaffold aim/checklist/ChecklistSectionInterface'
 
   FIELDS = [
     'checklist_interface_id:integer',

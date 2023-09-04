@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ChecklistCategoryGroupScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold ChecklistCategoryGroup'
-  BASE_COMMAND_DESTROY = 'rails d scaffold ChecklistCategoryGroup'
+  BASE_COMMAND_GENERATE = 'rails g scaffold aim/checklist/ChecklistCategoryGroup'
+  BASE_COMMAND_DESTROY = 'rails d scaffold aim/checklist/ChecklistCategoryGroup'
 
   FIELDS = [
     'group_id:integer',

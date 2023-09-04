@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ChecklistCategoryScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold ChecklistCategory'
-  BASE_COMMAND_DESTROY = 'rails d scaffold ChecklistCategory'
+  BASE_COMMAND_GENERATE = 'rails g scaffold aim/checklist/ChecklistCategory'
+  BASE_COMMAND_DESTROY = 'rails d scaffold aim/checklist/ChecklistCategory'
 
   FIELDS = [
     'map_id:integer',

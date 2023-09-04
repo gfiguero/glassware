@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Groups profiles</h1>
+
+<div id="aim_core_groups_profiles">
+  <% @aim_core_groups_profiles.each do |aim_core_groups_profile| %>
+    <%= render aim_core_groups_profile %>
+    <p>
+      <%= link_to "Show this groups profile", aim_core_groups_profile %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New groups profile", new_aim_core_groups_profile_path %>

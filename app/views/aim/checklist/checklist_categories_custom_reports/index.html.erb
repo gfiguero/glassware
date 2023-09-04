@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Checklist categories custom reports</h1>
+
+<div id="aim_checklist_checklist_categories_custom_reports">
+  <% @aim_checklist_checklist_categories_custom_reports.each do |aim_checklist_checklist_categories_custom_report| %>
+    <%= render aim_checklist_checklist_categories_custom_report %>
+    <p>
+      <%= link_to "Show this checklist categories custom report", aim_checklist_checklist_categories_custom_report %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New checklist categories custom report", new_aim_checklist_checklist_categories_custom_report_path %>

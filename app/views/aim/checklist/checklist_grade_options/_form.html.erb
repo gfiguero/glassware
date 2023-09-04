@@ -1,0 +1,67 @@
+<%= form_with(model: aim_checklist_checklist_grade_option) do |form| %>
+  <% if aim_checklist_checklist_grade_option.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(aim_checklist_checklist_grade_option.errors.count, "error") %> prohibited this aim_checklist_checklist_grade_option from being saved:</h2>
+
+      <ul>
+        <% aim_checklist_checklist_grade_option.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :grade, style: "display: block" %>
+    <%= form.number_field :grade %>
+  </div>
+
+  <div>
+    <%= form.label :incident_interface_id, style: "display: block" %>
+    <%= form.number_field :incident_interface_id %>
+  </div>
+
+  <div>
+    <%= form.label :created_at, style: "display: block" %>
+    <%= form.datetime_field :created_at %>
+  </div>
+
+  <div>
+    <%= form.label :updated_at, style: "display: block" %>
+    <%= form.datetime_field :updated_at %>
+  </div>
+
+  <div>
+    <%= form.label :comments, style: "display: block" %>
+    <%= form.number_field :comments %>
+  </div>
+
+  <div>
+    <%= form.label :pictures, style: "display: block" %>
+    <%= form.number_field :pictures %>
+  </div>
+
+  <div>
+    <%= form.label :documents, style: "display: block" %>
+    <%= form.number_field :documents %>
+  </div>
+
+  <div>
+    <%= form.label :deleted_at, style: "display: block" %>
+    <%= form.datetime_field :deleted_at %>
+  </div>
+
+  <div>
+    <%= form.label :default_tag_for_incident_id, style: "display: block" %>
+    <%= form.number_field :default_tag_for_incident_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

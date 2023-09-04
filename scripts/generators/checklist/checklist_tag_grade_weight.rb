@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ChecklistTagGradeWeightScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold ChecklistTagGradeWeight'
-  BASE_COMMAND_DESTROY = 'rails d scaffold ChecklistTagGradeWeight'
+  BASE_COMMAND_GENERATE = 'rails g scaffold aim/checklist/ChecklistTagGradeWeight'
+  BASE_COMMAND_DESTROY = 'rails d scaffold aim/checklist/ChecklistTagGradeWeight'
 
   FIELDS = [
     'checklist_id:integer',

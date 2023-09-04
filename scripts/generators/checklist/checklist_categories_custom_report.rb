@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ChecklistCategoriesCustomReportScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold ChecklistCategoriesCustomReport'
-  BASE_COMMAND_DESTROY = 'rails d scaffold ChecklistCategoriesCustomReport'
+  BASE_COMMAND_GENERATE = 'rails g scaffold aim/checklist/ChecklistCategoriesCustomReport'
+  BASE_COMMAND_DESTROY = 'rails d scaffold aim/checklist/ChecklistCategoriesCustomReport'
 
   FIELDS = [
     'custom_report_id:integer',

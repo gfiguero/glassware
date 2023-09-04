@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ChecklistStepChecklistTagScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold ChecklistStepChecklistTag'
-  BASE_COMMAND_DESTROY = 'rails d scaffold ChecklistStepChecklistTag'
+  BASE_COMMAND_GENERATE = 'rails g scaffold aim/checklist/ChecklistStepChecklistTag'
+  BASE_COMMAND_DESTROY = 'rails d scaffold aim/checklist/ChecklistStepChecklistTag'
 
   FIELDS = [
     'checklist_step_id:integer',

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Checklist section interfaces</h1>
+
+<div id="aim_checklist_checklist_section_interfaces">
+  <% @aim_checklist_checklist_section_interfaces.each do |aim_checklist_checklist_section_interface| %>
+    <%= render aim_checklist_checklist_section_interface %>
+    <p>
+      <%= link_to "Show this checklist section interface", aim_checklist_checklist_section_interface %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New checklist section interface", new_aim_checklist_checklist_section_interface_path %>
