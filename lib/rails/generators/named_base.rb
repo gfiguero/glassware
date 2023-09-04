@@ -7,7 +7,7 @@ module Rails
   module Generators
     class NamedBase < Base
       argument :name, type: :string
-      argument :v1_table_name, type: :string
+      # argument :v1_table_name, type: :string
 
       def initialize(args, *options) # :nodoc:
         @inside_template = nil
