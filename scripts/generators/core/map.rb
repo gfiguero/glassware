@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class MapScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold aim/core/map "aim_maps"'
-  BASE_COMMAND_DESTROY = 'rails d scaffold aim/core/map aim_maps'
+  BASE_COMMAND_GENERATE = 'rails g scaffold aim/core/map'
+  BASE_COMMAND_DESTROY = 'rails d scaffold aim/core/map'
   TABLE_NAME = 'aim_maps'
 
   FIELDS = [

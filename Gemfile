@@ -100,6 +100,9 @@ gem 'paranoia'
 # Protect from brute force attacks
 gem 'rack-attack'
 
+# AVO Admin Panel
+gem 'avo'
+
 # Oauth
 gem 'oauth2', '~> 2.0'
 gem 'omniauth-azure-activedirectory'
