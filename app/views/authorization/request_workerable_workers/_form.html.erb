@@ -1,0 +1,22 @@
+<%= form_with(model: authorization_request_workerable_worker) do |form| %>
+  <% if authorization_request_workerable_worker.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(authorization_request_workerable_worker.errors.count, "error") %> prohibited this authorization_request_workerable_worker from being saved:</h2>
+
+      <ul>
+        <% authorization_request_workerable_worker.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :request_worker_id, style: "display: block" %>
+    <%= form.number_field :request_worker_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

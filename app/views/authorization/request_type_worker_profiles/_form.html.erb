@@ -1,0 +1,42 @@
+<%= form_with(model: authorization_request_type_worker_profile) do |form| %>
+  <% if authorization_request_type_worker_profile.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(authorization_request_type_worker_profile.errors.count, "error") %> prohibited this authorization_request_type_worker_profile from being saved:</h2>
+
+      <ul>
+        <% authorization_request_type_worker_profile.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :request_type_id, style: "display: block" %>
+    <%= form.number_field :request_type_id %>
+  </div>
+
+  <div>
+    <%= form.label :validation_type, style: "display: block" %>
+    <%= form.number_field :validation_type %>
+  </div>
+
+  <div>
+    <%= form.label :default, style: "display: block" %>
+    <%= form.check_box :default %>
+  </div>
+
+  <div>
+    <%= form.label :workerable_type, style: "display: block" %>
+    <%= form.number_field :workerable_type %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

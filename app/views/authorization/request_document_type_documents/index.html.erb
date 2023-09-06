@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Request document type documents</h1>
+
+<div id="authorization_request_document_type_documents">
+  <% @authorization_request_document_type_documents.each do |authorization_request_document_type_document| %>
+    <%= render authorization_request_document_type_document %>
+    <p>
+      <%= link_to "Show this request document type document", authorization_request_document_type_document %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New request document type document", new_authorization_request_document_type_document_path %>

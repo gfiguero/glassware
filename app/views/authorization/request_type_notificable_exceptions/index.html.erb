@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Request type notificable exceptions</h1>
+
+<div id="authorization_request_type_notificable_exceptions">
+  <% @authorization_request_type_notificable_exceptions.each do |authorization_request_type_notificable_exception| %>
+    <%= render authorization_request_type_notificable_exception %>
+    <p>
+      <%= link_to "Show this request type notificable exception", authorization_request_type_notificable_exception %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New request type notificable exception", new_authorization_request_type_notificable_exception_path %>

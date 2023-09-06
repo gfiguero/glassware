@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Request workerable workers</h1>
+
+<div id="authorization_request_workerable_workers">
+  <% @authorization_request_workerable_workers.each do |authorization_request_workerable_worker| %>
+    <%= render authorization_request_workerable_worker %>
+    <p>
+      <%= link_to "Show this request workerable worker", authorization_request_workerable_worker %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New request workerable worker", new_authorization_request_workerable_worker_path %>

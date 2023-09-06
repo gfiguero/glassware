@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @authorization_request_type %>
+
+<div>
+  <%= link_to "Edit this request type", edit_authorization_request_type_path(@authorization_request_type) %> |
+  <%= link_to "Back to request types", authorization_request_types_path %>
+
+  <%= button_to "Destroy this request type", @authorization_request_type, method: :delete %>
+</div>

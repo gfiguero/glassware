@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @authorization_worker_document %>
+
+<div>
+  <%= link_to "Edit this worker document", edit_authorization_worker_document_path(@authorization_worker_document) %> |
+  <%= link_to "Back to worker documents", authorization_worker_documents_path %>
+
+  <%= button_to "Destroy this worker document", @authorization_worker_document, method: :delete %>
+</div>

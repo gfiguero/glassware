@@ -1,0 +1,37 @@
+<%= form_with(model: authorization_request_map) do |form| %>
+  <% if authorization_request_map.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(authorization_request_map.errors.count, "error") %> prohibited this authorization_request_map from being saved:</h2>
+
+      <ul>
+        <% authorization_request_map.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :map_id, style: "display: block" %>
+    <%= form.number_field :map_id %>
+  </div>
+
+  <div>
+    <%= form.label :request_id, style: "display: block" %>
+    <%= form.number_field :request_id %>
+  </div>
+
+  <div>
+    <%= form.label :created_at, style: "display: block" %>
+    <%= form.datetime_field :created_at %>
+  </div>
+
+  <div>
+    <%= form.label :updated_at, style: "display: block" %>
+    <%= form.datetime_field :updated_at %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

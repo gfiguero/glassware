@@ -1,5 +1,34 @@
 Rails.application.routes.draw do
+  namespace :authorization do
+    resources :worker_documents
+    resources :scanned_frames
+    resources :request_workerable_workers
+    resources :request_workers
+    resources :request_vehicles
+    resources :request_type_worker_profile_document_types
+    resources :request_type_worker_profiles
+    resources :request_type_notificable_groups
+    resources :request_type_notificable_exceptions
+    resources :request_type_document_types
+    resources :request_type_authorizing_groups
+    resources :request_types
+    resources :request_maps
+    resources :request_document_type_documents
+    resources :requests
+    resources :provision_suppliers
+    resources :provision_request_types
+    resources :provisions
+    resources :map_group_requests
+  end
+
   namespace :aim do
+    namespace :authorization do
+      resources :history_states
+      resources :group_requests
+      resources :current_worker_documents
+      resources :authorized_maps
+    end
+
     namespace :core do
       resources :users
       resources :users_groups
@@ -10,6 +39,7 @@ Rails.application.routes.draw do
       resources :roles
       resources :maps
     end
+
     namespace :checklist do
       resources :checklists
       resources :checklist_tag_grade_weights

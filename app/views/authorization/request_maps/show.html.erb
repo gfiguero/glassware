@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @authorization_request_map %>
+
+<div>
+  <%= link_to "Edit this request map", edit_authorization_request_map_path(@authorization_request_map) %> |
+  <%= link_to "Back to request maps", authorization_request_maps_path %>
+
+  <%= button_to "Destroy this request map", @authorization_request_map, method: :delete %>
+</div>

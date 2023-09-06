@@ -5,37 +5,22 @@ namespace :generate do
   task core: :environment do
     puts 'Starting generator:core task...'
 
-    puts 'Generating MapScaffold...'
-    result = `#{MapScaffold.new.generate_command}`
-    puts result unless result.strip.empty?
+    scaffolds = [
+      "Map",
+      "Role",
+      "ProfilesRoles",
+      "Profile",
+      "GroupsProfiles",
+      "Group",
+      "UsersGroups",
+      "User"
+    ]
 
-    puts 'Generating RoleScaffold...'
-    result = `#{RoleScaffold.new.generate_command}`
-    puts result unless result.strip.empty?
-
-    puts 'Generating ProfilesRolesScaffold...'
-    result = `#{ProfilesRolesScaffold.new.generate_command}`
-    puts result unless result.strip.empty?
-
-    puts 'Generating ProfileScaffold...'
-    result = `#{ProfileScaffold.new.generate_command}`
-    puts result unless result.strip.empty?
-
-    puts 'Generating GroupsProfilesScaffold...'
-    result = `#{GroupsProfilesScaffold.new.generate_command}`
-    puts result unless result.strip.empty?
-
-    puts 'Generating GroupScaffold...'
-    result = `#{GroupScaffold.new.generate_command}`
-    puts result unless result.strip.empty?
-
-    puts 'Generating UsersGroupsScaffold...'
-    result = `#{UsersGroupsScaffold.new.generate_command}`
-    puts result unless result.strip.empty?
-
-    puts 'Generating UserScaffold...'
-    result = `#{UserScaffold.new.generate_command}`
-    puts result unless result.strip.empty?
+    scaffolds.each do |scaffold|
+      puts "Generating #{scaffold}Scaffold..."
+      result = `#{Object.const_get("#{scaffold}Scaffold").new.generate_command}`
+      puts result unless result.strip.empty?
+    end
 
     puts 'Finished generate:core task!'
   end

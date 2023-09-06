@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @aim_authorization_history_state %>
+
+<div>
+  <%= link_to "Edit this history state", edit_aim_authorization_history_state_path(@aim_authorization_history_state) %> |
+  <%= link_to "Back to history states", aim_authorization_history_states_path %>
+
+  <%= button_to "Destroy this history state", @aim_authorization_history_state, method: :delete %>
+</div>

@@ -1,0 +1,27 @@
+<%= form_with(model: authorization_request_type_worker_profile_document_type) do |form| %>
+  <% if authorization_request_type_worker_profile_document_type.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(authorization_request_type_worker_profile_document_type.errors.count, "error") %> prohibited this authorization_request_type_worker_profile_document_type from being saved:</h2>
+
+      <ul>
+        <% authorization_request_type_worker_profile_document_type.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :worker_profile_id, style: "display: block" %>
+    <%= form.number_field :worker_profile_id %>
+  </div>
+
+  <div>
+    <%= form.label :document_type_id, style: "display: block" %>
+    <%= form.number_field :document_type_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

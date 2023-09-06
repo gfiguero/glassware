@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Provision suppliers</h1>
+
+<div id="authorization_provision_suppliers">
+  <% @authorization_provision_suppliers.each do |authorization_provision_supplier| %>
+    <%= render authorization_provision_supplier %>
+    <p>
+      <%= link_to "Show this provision supplier", authorization_provision_supplier %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New provision supplier", new_authorization_provision_supplier_path %>

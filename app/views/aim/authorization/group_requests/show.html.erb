@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @aim_authorization_group_request %>
+
+<div>
+  <%= link_to "Edit this group request", edit_aim_authorization_group_request_path(@aim_authorization_group_request) %> |
+  <%= link_to "Back to group requests", aim_authorization_group_requests_path %>
+
+  <%= button_to "Destroy this group request", @aim_authorization_group_request, method: :delete %>
+</div>

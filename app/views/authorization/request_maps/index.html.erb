@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Request maps</h1>
+
+<div id="authorization_request_maps">
+  <% @authorization_request_maps.each do |authorization_request_map| %>
+    <%= render authorization_request_map %>
+    <p>
+      <%= link_to "Show this request map", authorization_request_map %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New request map", new_authorization_request_map_path %>

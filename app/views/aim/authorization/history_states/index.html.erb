@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>History states</h1>
+
+<div id="aim_authorization_history_states">
+  <% @aim_authorization_history_states.each do |aim_authorization_history_state| %>
+    <%= render aim_authorization_history_state %>
+    <p>
+      <%= link_to "Show this history state", aim_authorization_history_state %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New history state", new_aim_authorization_history_state_path %>

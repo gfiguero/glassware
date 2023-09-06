@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Current worker documents</h1>
+
+<div id="aim_authorization_current_worker_documents">
+  <% @aim_authorization_current_worker_documents.each do |aim_authorization_current_worker_document| %>
+    <%= render aim_authorization_current_worker_document %>
+    <p>
+      <%= link_to "Show this current worker document", aim_authorization_current_worker_document %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New current worker document", new_aim_authorization_current_worker_document_path %>

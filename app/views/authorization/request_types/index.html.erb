@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Request types</h1>
+
+<div id="authorization_request_types">
+  <% @authorization_request_types.each do |authorization_request_type| %>
+    <%= render authorization_request_type %>
+    <p>
+      <%= link_to "Show this request type", authorization_request_type %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New request type", new_authorization_request_type_path %>

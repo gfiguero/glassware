@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Authorized maps</h1>
+
+<div id="aim_authorization_authorized_maps">
+  <% @aim_authorization_authorized_maps.each do |aim_authorization_authorized_map| %>
+    <%= render aim_authorization_authorized_map %>
+    <p>
+      <%= link_to "Show this authorized map", aim_authorization_authorized_map %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New authorized map", new_aim_authorization_authorized_map_path %>

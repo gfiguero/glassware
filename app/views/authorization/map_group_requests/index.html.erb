@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Map group requests</h1>
+
+<div id="authorization_map_group_requests">
+  <% @authorization_map_group_requests.each do |authorization_map_group_request| %>
+    <%= render authorization_map_group_request %>
+    <p>
+      <%= link_to "Show this map group request", authorization_map_group_request %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New map group request", new_authorization_map_group_request_path %>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Provision request types</h1>
+
+<div id="authorization_provision_request_types">
+  <% @authorization_provision_request_types.each do |authorization_provision_request_type| %>
+    <%= render authorization_provision_request_type %>
+    <p>
+      <%= link_to "Show this provision request type", authorization_provision_request_type %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New provision request type", new_authorization_provision_request_type_path %>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Group requests</h1>
+
+<div id="aim_authorization_group_requests">
+  <% @aim_authorization_group_requests.each do |aim_authorization_group_request| %>
+    <%= render aim_authorization_group_request %>
+    <p>
+      <%= link_to "Show this group request", aim_authorization_group_request %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New group request", new_aim_authorization_group_request_path %>
