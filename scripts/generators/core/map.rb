@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class MapScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold aim/core/map'
-  BASE_COMMAND_DESTROY = 'rails d scaffold aim/core/map'
-  TABLE_NAME = 'aim_maps'
+  BASE_COMMAND_GENERATE = 'rails g scaffold'
+  BASE_COMMAND_DESTROY = 'rails d scaffold'
+  CLASS_NAME = 'Map'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_maps'
 
   FIELDS = [
     'name:string',
@@ -23,9 +24,9 @@ class MapScaffold
     'rgt:integer',
     'depth:integer',
     'kind:string',
-    'alias:string', # reserved word
-    'created_at:datetime', # redefined field
-    'updated_at:datetime', # redefined field
+    'alias:string',
+    'created_at:datetime',
+    'updated_at:datetime',
     'last_update:datetime',
     'last_change:datetime',
     'zoom_matrix:hstore',
@@ -63,11 +64,11 @@ class MapScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND_GENERATE} #{TABLE_NAME} #{FIELDS.join(' ')} --skip-migration"
+    @command = "#{BASE_COMMAND_GENERATE} #{CLASS_NAME} #{FIELDS.join(' ')} #{COMMAND_OPTIONS} "
   end
 
   def destroy_command
-    @command = "#{BASE_COMMAND_DESTROY} #{TABLE_NAME}"
+    @command = "#{BASE_COMMAND_DESTROY} #{CLASS_NAME}"
   end
 
   # If you ever want to print or access the command outside the class:
