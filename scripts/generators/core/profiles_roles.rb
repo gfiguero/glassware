@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class ProfilesRolesScaffold
-  BASE_COMMAND = 'rails g scaffold aim/core/profiles_roles'
-  DESTROY_COMMAND = 'rails d scaffold aim/core/profiles_roles'
-  TABLE_NAME = 'aim_profiles_roles'
+  BASE_COMMAND_GENERATE = 'rails g scaffold'
+  BASE_COMMAND_DESTROY = 'rails d scaffold'
+  CLASS_NAME = 'ProfilesRoles'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_profiles_roles'
 
   FIELDS = [
     'role:references',
@@ -13,11 +14,11 @@ class ProfilesRolesScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND} #{TABLE_NAME} #{FIELDS.join(' ')} --skip-migration"
+    @command = "#{BASE_COMMAND_GENERATE} #{CLASS_NAME} #{FIELDS.join(' ')} #{COMMAND_OPTIONS}"
   end
 
   def destroy_command
-    @command = "#{DESTROY_COMMAND} #{TABLE_NAME}"
+    @command = "#{BASE_COMMAND_DESTROY} #{CLASS_NAME}"
   end
 
   # If you ever want to print or access the command outside the class:
