@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class AuthorizationMapGroupRequestScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold authorization/MapGroupRequest'
-  BASE_COMMAND_DESTROY = 'rails d scaffold authorization/MapGroupRequest'
-  TABLE_NAME = 'aim_authorization_map_group_requests'
+  BASE_COMMAND_GENERATE = 'rails g scaffold'
+  BASE_COMMAND_DESTROY = 'rails d scaffold'
+  CLASS_NAME = 'AuthorizationMapGroupRequest'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_authorization_map_group_requests'
 
   FIELDS = [
     'map_id:integer',
@@ -19,11 +20,11 @@ class AuthorizationMapGroupRequestScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND_GENERATE} #{TABLE_NAME} #{FIELDS.join(' ')} --skip-migration"
+    @command = "#{BASE_COMMAND_GENERATE} #{CLASS_NAME} #{FIELDS.join(' ')} #{COMMAND_OPTIONS}"
   end
 
   def destroy_command
-    @command = "#{BASE_COMMAND_DESTROY} #{TABLE_NAME}"
+    @command = "#{BASE_COMMAND_DESTROY} #{CLASS_NAME}"
   end
 
   attr_reader :command

@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class ChecklistTagGradeWeightScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold aim/checklist/ChecklistTagGradeWeight'
-  BASE_COMMAND_DESTROY = 'rails d scaffold aim/checklist/ChecklistTagGradeWeight'
-  TABLE_NAME = 'aim_checklist_tag_grade_weights'
+  BASE_COMMAND_GENERATE = 'rails g scaffold'
+  BASE_COMMAND_DESTROY = 'rails d scaffold'
+  CLASS_NAME = 'ChecklistTagGradeWeight'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_checklist_tag_grade_weights'
 
   FIELDS = [
     'checklist_id:integer',
@@ -13,11 +14,11 @@ class ChecklistTagGradeWeightScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND_GENERATE} #{TABLE_NAME} #{FIELDS.join(' ')} --skip-migration"
+    @command = "#{BASE_COMMAND_GENERATE} #{CLASS_NAME} #{FIELDS.join(' ')} #{COMMAND_OPTIONS}"
   end
 
   def destroy_command
-    @command = "#{BASE_COMMAND_DESTROY} #{TABLE_NAME}"
+    @command = "#{BASE_COMMAND_DESTROY} #{CLASS_NAME}"
   end
 
   attr_reader :command

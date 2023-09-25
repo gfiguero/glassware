@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class AuthorizationScannedFrameScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold authorization/ScannedFrame'
-  BASE_COMMAND_DESTROY = 'rails d scaffold authorization/ScannedFrame'
-  TABLE_NAME = 'aim_authorization_scanned_frames'
+  BASE_COMMAND_GENERATE = 'rails g scaffold'
+  BASE_COMMAND_DESTROY = 'rails d scaffold'
+  CLASS_NAME = 'AuthorizationScannedFrame'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_authorization_scanned_frames'
 
   FIELDS = [
     'created_at:date',
@@ -13,11 +14,11 @@ class AuthorizationScannedFrameScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND_GENERATE} #{TABLE_NAME} #{FIELDS.join(' ')} --skip-migration"
+    @command = "#{BASE_COMMAND_GENERATE} #{CLASS_NAME} #{FIELDS.join(' ')} #{COMMAND_OPTIONS}"
   end
 
   def destroy_command
-    @command = "#{BASE_COMMAND_DESTROY} #{TABLE_NAME}"
+    @command = "#{BASE_COMMAND_DESTROY} #{CLASS_NAME}"
   end
 
   attr_reader :command

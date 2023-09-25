@@ -3,7 +3,7 @@
 class UsersGroupsScaffold
   BASE_COMMAND_GENERATE = 'rails g scaffold'
   BASE_COMMAND_DESTROY = 'rails d scaffold'
-  CLASS_NAME = 'UserGroups'
+  CLASS_NAME = 'UserGroup'
   COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_users_groups'
 
   FIELDS = [

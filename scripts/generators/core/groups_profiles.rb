@@ -3,7 +3,7 @@
 class GroupsProfilesScaffold
   BASE_COMMAND_GENERATE = 'rails g scaffold'
   BASE_COMMAND_DESTROY = 'rails d scaffold'
-  CLASS_NAME = 'GroupsProfiles'
+  CLASS_NAME = 'GroupsProfile'
   COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_groups_profiles'
 
 

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class InfrastructureScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold aim/maintenance/infrastructure'
-  BASE_COMMAND_DESTROY = 'rails d scaffold aim/maintenance/infrastructure'
+  BASE_COMMAND_GENERATE = 'rails g scaffold aim/infrastructure/infrastructure'
+  BASE_COMMAND_DESTROY = 'rails d scaffold aim/infrastructure/infrastructure'
 
   FIELDS = [
     'manufacturer:string',

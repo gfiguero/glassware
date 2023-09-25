@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class AuthorizationGroupRequestScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold aim/authorization/GroupRequest'
-  BASE_COMMAND_DESTROY = 'rails d scaffold aim/authorization/GroupRequest'
-  TABLE_NAME = 'aim_authorization_group_requests'
+  BASE_COMMAND_GENERATE = 'rails g scaffold'
+  BASE_COMMAND_DESTROY = 'rails d scaffold'
+  CLASS_NAME = 'AuthorizationGroupRequest'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_authorization_group_requests'
 
   FIELDS = [
     'request_id:integer',
@@ -17,11 +18,11 @@ class AuthorizationGroupRequestScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND_GENERATE} #{TABLE_NAME} #{FIELDS.join(' ')} --skip-migration"
+    @command = "#{BASE_COMMAND_GENERATE} #{CLASS_NAME} #{FIELDS.join(' ')} #{COMMAND_OPTIONS}"
   end
 
   def destroy_command
-    @command = "#{BASE_COMMAND_DESTROY} #{TABLE_NAME}"
+    @command = "#{BASE_COMMAND_DESTROY} #{CLASS_NAME}"
   end
 
   attr_reader :command

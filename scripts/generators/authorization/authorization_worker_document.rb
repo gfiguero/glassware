@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class AuthorizationWorkerDocumentScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold authorization/WorkerDocument'
-  BASE_COMMAND_DESTROY = 'rails d scaffold authorization/WorkerDocument'
-  TABLE_NAME = 'aim_authorization_worker_documents'
+  BASE_COMMAND_GENERATE = 'rails g scaffold'
+  BASE_COMMAND_DESTROY = 'rails d scaffold'
+  CLASS_NAME = 'AuthorizationWorkerDocument'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_authorization_worker_documents'
 
   FIELDS = [
     'contact_id:integer',
@@ -25,11 +26,11 @@ class AuthorizationWorkerDocumentScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND_GENERATE} #{TABLE_NAME} #{FIELDS.join(' ')} --skip-migration"
+    @command = "#{BASE_COMMAND_GENERATE} #{CLASS_NAME} #{FIELDS.join(' ')} #{COMMAND_OPTIONS}"
   end
 
   def destroy_command
-    @command = "#{BASE_COMMAND_DESTROY} #{TABLE_NAME}"
+    @command = "#{BASE_COMMAND_DESTROY} #{CLASS_NAME}"
   end
 
   attr_reader :command

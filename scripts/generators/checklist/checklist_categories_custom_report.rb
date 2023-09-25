@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class ChecklistCategoriesCustomReportScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold aim/checklist/ChecklistCategoriesCustomReport'
-  BASE_COMMAND_DESTROY = 'rails d scaffold aim/checklist/ChecklistCategoriesCustomReport'
-  TABLE_NAME = 'aim_checklist_categories_custom_reports'
+  BASE_COMMAND_GENERATE = 'rails g scaffold'
+  BASE_COMMAND_DESTROY = 'rails d scaffold'
+  CLASS_NAME = 'ChecklistCategoriesCustomReport'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_checklist_categories_custom_reports'
 
   FIELDS = [
     'custom_report_id:integer',
@@ -11,13 +12,12 @@ class ChecklistCategoriesCustomReportScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND_GENERATE} #{TABLE_NAME} #{FIELDS.join(' ')} --skip-migration"
+    @command = "#{BASE_COMMAND_GENERATE} #{CLASS_NAME} #{FIELDS.join(' ')} #{COMMAND_OPTIONS}"
   end
 
   def destroy_command
-    @command = "#{BASE_COMMAND_DESTROY} #{TABLE_NAME}"
+    @command = "#{BASE_COMMAND_DESTROY} #{CLASS_NAME}"
   end
 
-  # If you ever want to print or access the command outside the class:
   attr_reader :command
 end

@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class AuthorizationProvisionScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold authorization/Provision'
-  BASE_COMMAND_DESTROY = 'rails d scaffold authorization/Provision'
-  TABLE_NAME = 'aim_authorization_provisions'
+  BASE_COMMAND_GENERATE = 'rails g scaffold'
+  BASE_COMMAND_DESTROY = 'rails d scaffold'
+  CLASS_NAME = 'AuthorizationProvision'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_authorization_provisions'
 
   FIELDS = [
     'name:string',
@@ -13,11 +14,11 @@ class AuthorizationProvisionScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND_GENERATE} #{TABLE_NAME} #{FIELDS.join(' ')} --skip-migration"
+    @command = "#{BASE_COMMAND_GENERATE} #{CLASS_NAME} #{FIELDS.join(' ')} #{COMMAND_OPTIONS}"
   end
 
   def destroy_command
-    @command = "#{BASE_COMMAND_DESTROY} #{TABLE_NAME}"
+    @command = "#{BASE_COMMAND_DESTROY} #{CLASS_NAME}"
   end
 
   attr_reader :command

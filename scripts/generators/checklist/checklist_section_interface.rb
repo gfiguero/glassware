@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class ChecklistSectionInterfaceScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold aim/checklist/ChecklistSectionInterface'
-  BASE_COMMAND_DESTROY = 'rails d scaffold aim/checklist/ChecklistSectionInterface'
-  TABLE_NAME = 'aim_checklist_section_interfaces'
+  BASE_COMMAND_GENERATE = 'rails g scaffold'
+  BASE_COMMAND_DESTROY = 'rails d scaffold'
+  CLASS_NAME = 'ChecklistSectionInterface'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_checklist_section_interfaces'
 
   FIELDS = [
     'checklist_interface_id:integer',
@@ -17,11 +18,11 @@ class ChecklistSectionInterfaceScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND_GENERATE} #{TABLE_NAME} #{FIELDS.join(' ')} --skip-migration"
+    @command = "#{BASE_COMMAND_GENERATE} #{CLASS_NAME} #{FIELDS.join(' ')} #{COMMAND_OPTIONS}"
   end
 
   def destroy_command
-    @command = "#{BASE_COMMAND_DESTROY} #{TABLE_NAME}"
+    @command = "#{BASE_COMMAND_DESTROY} #{CLASS_NAME}"
   end
 
   attr_reader :command
