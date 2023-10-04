@@ -1,17 +1,19 @@
 # frozen_string_literal: true
 
-class InfrastructureScaffold
+class MaintenanceScheduledMaintenanceScaffold
   BASE_COMMAND_GENERATE = 'rails g scaffold'
   BASE_COMMAND_DESTROY = 'rails d scaffold'
-  CLASS_NAME = 'Infrastructure'
-  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_infrastructures'
+  CLASS_NAME = 'MaintenanceScheduledMaintenance'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_maintenance_scheduled_maintenances'
 
   FIELDS = [
-    'name:string',
-    'code:string',
-    'properties:hstore',
+    'description:text',
+    'state:integer',
+    'date:date',
+    'infrastructure_id:integer',
     'created_at:datetime',
-    'updated_at:datetime'
+    'updated_at:datetime',
+    'limit_date:date'
   ].freeze
 
   def generate_command

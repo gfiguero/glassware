@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-class InfrastructureScaffold
+class MaintenanceInfrastructureWarrantyScaffold
   BASE_COMMAND_GENERATE = 'rails g scaffold'
   BASE_COMMAND_DESTROY = 'rails d scaffold'
-  CLASS_NAME = 'Infrastructure'
-  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_infrastructures'
+  CLASS_NAME = 'MaintenanceInfrastructureWarranty'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_maintenance_infrastructure_warranties'
 
   FIELDS = [
+    'infrastructure_id:integer',
     'name:string',
-    'code:string',
-    'properties:hstore',
+    'deadline:date',
     'created_at:datetime',
     'updated_at:datetime'
   ].freeze
