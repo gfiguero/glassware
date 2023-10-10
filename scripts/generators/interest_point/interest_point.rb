@@ -69,7 +69,7 @@ class InterestPointScaffold
   ].freeze
 
   def generate_command
-    @command = "#{BASE_COMMAND_GENERATE} #{CLASS_NAME} #{FIELDS.join('')} #{COMMAND_OPTIONS}"
+    @command = "#{BASE_COMMAND_GENERATE} #{CLASS_NAME} #{FIELDS.join(' ')} #{COMMAND_OPTIONS}"
   end
 
   def destroy_command
