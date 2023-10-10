@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
-class IncidentCategoryScaffold
+class InterestPointTranslationScaffold
   BASE_COMMAND_GENERATE = 'rails g scaffold'
   BASE_COMMAND_DESTROY = 'rails d scaffold'
-  CLASS_NAME = 'IncidentCategory'
-  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_incident_categories'
+  CLASS_NAME = 'InterestPointTranslation'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_interest_point_translations'
 
   FIELDS = [
-    'map_id:integer',
-    'name:string',
-    'icon_file_name:string',
-    'icon_content_type:string',
-    'icon_file_size:integer',
-    'icon_updated_at:datetime',
+    'aim_interest_point_id:integer',
+    'locale:string',
     'created_at:datetime',
     'updated_at:datetime',
-    'external_id:integer'
+    'description:text',
+    'specialty:string',
+    'average_consumption:string',
+    'schedule:string',
+    'smoker_space:string'
   ].freeze
 
   def generate_command

@@ -1,21 +1,15 @@
 # frozen_string_literal: true
 
-class IncidentCategoryScaffold
+class TaskExternalLinkScaffold
   BASE_COMMAND_GENERATE = 'rails g scaffold'
   BASE_COMMAND_DESTROY = 'rails d scaffold'
-  CLASS_NAME = 'IncidentCategory'
-  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_incident_categories'
+  CLASS_NAME = 'TaskExternalLink'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_task_external_links'
 
   FIELDS = [
-    'map_id:integer',
+    'task_id:integer',
     'name:string',
-    'icon_file_name:string',
-    'icon_content_type:string',
-    'icon_file_size:integer',
-    'icon_updated_at:datetime',
-    'created_at:datetime',
-    'updated_at:datetime',
-    'external_id:integer'
+    'url:string'
   ].freeze
 
   def generate_command

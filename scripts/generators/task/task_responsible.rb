@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-class IncidentStateScaffold
+class TaskResponsibleScaffold
   BASE_COMMAND_GENERATE = 'rails g scaffold'
   BASE_COMMAND_DESTROY = 'rails d scaffold'
-  CLASS_NAME = 'IncidentState'
-  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_incident_states'
+  CLASS_NAME = 'TaskResponsible'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_task_responsibles'
 
   FIELDS = [
-    'incident_id:integer',
-    'state_interface_id:integer',
-    'created_at:datetime',
-    'updated_at:datetime',
-    'user_id:integer',
-    'supplier_id:integer'
+    'task_id:integer',
+    'completion_type:integer',
+    'responsible_type:integer',
+    'supervisable_id:integer',
+    'supervisable_type:string',
+    'updated_at:datetime'
   ].freeze
 
   def generate_command
