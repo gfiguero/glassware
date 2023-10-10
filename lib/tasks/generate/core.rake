@@ -18,8 +18,7 @@ namespace :generate do
 
     scaffolds.each do |scaffold|
       puts "Generating #{scaffold}Scaffold..."
-      result = `#{Object.const_get("#{scaffold}Scaffold").new.generate_command}`
-      puts result unless result.strip.empty?
+      system(Object.const_get("#{scaffold}Scaffold").new.generate_command)
     end
 
     puts 'Finished generate:core task!'

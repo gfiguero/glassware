@@ -13,8 +13,7 @@ namespace :destroy do
 
     scaffolds.each do |scaffold|
       puts "Destroying #{scaffold}Scaffold..."
-      result = `#{Object.const_get("#{scaffold}Scaffold").new.destroy_command}`
-      puts result unless result.strip.empty?
+      system(Object.const_get("#{scaffold}Scaffold").new.destroy_command)
     end
 
     puts 'Finished destroy:calendar task!'
