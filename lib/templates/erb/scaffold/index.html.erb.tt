@@ -1,0 +1,50 @@
+<% permitted_attributes = ['name', 'email'] %>
+<div class="container-fluid">
+  <p id="notice"><%%= notice %></p>
+
+  <h1><%%= I18n.t '<%= plural_table_name %>.properties.title' %></h1>
+
+  <div class="d-grid gap-2 d-md-flex mb-2">
+    <%%= link_to '<i class="fa fa-plus fa-fw"></i> '.html_safe + I18n.t('<%= plural_table_name %>.actions.new'), new_<%= singular_route_name %>_path, class: "btn btn-success min-width-btn" %>
+    <button class="btn btn-primary" type="submit"><%%== '<i class="fa fa-filter fa-fw"></i> '.html_safe + I18n.t('maps.actions.filter') %></button>
+  </div>
+
+  <div class="d-grid gap-2">
+    <div class="ms-auto" data-controller="pagy-initializer"><%%== pagy_bootstrap_nav(@pagy) %></div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-striped m-0">
+          <thead>
+            <tr>
+              <% attributes.reject(&:password_digest?).each do |attribute| -%>
+                <%- if permitted_attributes.include? attribute.name -%><th scope="col"><%%= I18n.t '<%= plural_table_name %>.attributes.<%= attribute.name %>' %></th><% end -%>
+              <%- end %>
+              <th class="col-1"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% permitted_attributes %>
+            <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+            <tr>
+              <% attributes.reject(&:password_digest?).each do |attribute| -%>
+                <%- if permitted_attributes.include? attribute.name -%><td class="align-middle"><%%= <%= singular_table_name %>.<%= attribute.column_name %> %></td><% end -%>
+              <%- end %>
+              <td>
+                <div class="btn-group">
+                  <%%= link_to '<i class="fa fa-eye"></i>'.html_safe, <%= model_resource_name %>, class: "btn btn-outline-primary", type: "button" %>
+                  <%%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_<%= singular_route_name %>_path(<%= singular_table_name %>), class: "btn btn-outline-secondary", type: "button" %>
+                  <%%= link_to '<i class="fa fa-trash"></i>'.html_safe, <%= model_resource_name %>, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger", type: "button" %>
+                </div>
+              </td>
+            </tr>
+            <%% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
