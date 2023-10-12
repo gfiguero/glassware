@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class AuthorizationRequestTypeDocumentTypeScaffold
+class AuthorizationRequestTypeNotificableExceptionScaffold
   BASE_COMMAND_GENERATE = 'rails g scaffold'
   BASE_COMMAND_DESTROY = 'rails d scaffold'
-  CLASS_NAME = 'AuthorizationRequestTypeDocumentType'
+  CLASS_NAME = 'AuthorizationRequestTypeNotificableException'
   COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_authorization_request_type_document_types'
 
   FIELDS = [
