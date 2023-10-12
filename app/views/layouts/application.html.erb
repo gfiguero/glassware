@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AimmanagerR1App</title>
+    <title>Aimmanager R1 <%= content_for?(:title) ? yield(:title) : "Main" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+      <div class="container-fluid">
+        <div class="col">
+          <%= content_for?(:content) ? yield(:content) : yield %>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
