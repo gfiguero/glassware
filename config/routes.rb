@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  #mount Avo::Engine, at: Avo.configuration.root_path
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  scope :api do
+    scope :v7 do
+      resources :maps
+    end
+  end
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "homepage#index"
 end
