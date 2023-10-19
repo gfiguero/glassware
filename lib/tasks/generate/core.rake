@@ -10,6 +10,7 @@ namespace :generate do
       "Group",
       "Profile",
       "Role",
+      "User",
       #"ProfilesRoles",
       #"GroupsProfiles",
       #"UsersGroups",

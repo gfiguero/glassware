@@ -95,9 +95,6 @@ gem 'json'
 # Agnostic pagination in plain ruby. It does it all. Better.
 gem 'pagy', '~> 6.1'
 
-# Provides alertify.js for Rails.
-gem 'alertifyjs-rails'
-
 # Use services gem to implement Services arch
 #gem 'services'
 
@@ -164,3 +161,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem "devise", "~> 4.9"
