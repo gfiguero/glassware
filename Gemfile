@@ -66,13 +66,13 @@ gem 'json'
 
 ### Security
 # Devise gem for authentication
-#gem 'devise'
+gem 'devise'
 
 # Devise two factor authentication
 #gem 'devise-two-factor'
 
 # Roles based authorization
-#gem 'cancancan'
+gem 'cancancan'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 #gem "bcrypt", "~> 3.1.7"
