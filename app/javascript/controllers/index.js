@@ -4,8 +4,8 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import PagyController from "./pagy_controller"
+application.register("pagy-initializer", PagyController)
 
-import PagyInitializerController from "./pagy_initializer_controller"
-application.register("pagy-initializer", PagyInitializerController)
+import Notification from "./notification_controller"
+application.register("notification", Notification)

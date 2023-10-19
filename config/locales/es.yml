@@ -191,3 +191,13 @@ es:
       new: "Nueva Plaza"
       filter: "Filtrar Plazas"
 
+  users:
+    properties:
+      title: "Usuarios"
+    attributes:
+      name: "Nombre"
+      email: "Email"
+    actions:
+      new: "Nuevo Usuario"
+      filter: "Filtrar Usuarios"
+

@@ -5,21 +5,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
     <header>
-      <%= render 'layouts/navigation' %>
+      <%= render 'layouts/shared/navigation' %>
+      <%= render 'layouts/shared/notification' %>
     </header>
-    <main role="main">
-      <div class="container-fluid">
-        <div class="col">
-          <%= content_for?(:content) ? yield(:content) : yield %>
-        </div>
-      </div>
+    <main class="px-5 bg-white dark:bg-gray-900 antialiased" role="main">
+      <%= yield %>
+      <%#= render 'layouts/shared/test' %>
+      <%#= content_for?(:content) ? yield(:content) : yield %>
     </main>
   </body>
 </html>
