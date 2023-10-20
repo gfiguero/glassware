@@ -1,0 +1,46 @@
+
+<div class="container-fluid">
+  <p id="notice"><%= notice %></p>
+
+  <h1><%= I18n.t 'users.properties.title' %></h1>
+
+  <div class="d-grid gap-2 d-md-flex mb-2">
+    <%= link_to '<i class="fa fa-plus fa-fw"></i> '.html_safe + I18n.t('users.actions.new'), new_user_path, class: "btn btn-success min-width-btn" %>
+    <button class="btn btn-primary" type="submit"><%== '<i class="fa fa-filter fa-fw"></i> '.html_safe + I18n.t('maps.actions.filter') %></button>
+  </div>
+
+  <div class="d-grid gap-2">
+    <div class="ms-auto" data-controller="pagy-initializer"><%== pagy_bootstrap_nav(@pagy) %></div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-striped m-0">
+          <thead>
+            <tr>
+              
+              <th class="col-1"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            
+            <% @users.each do |user| %>
+            <tr>
+              
+              <td>
+                <div class="btn-group">
+                  <%= link_to '<i class="fa fa-eye"></i>'.html_safe, user, class: "btn btn-outline-primary", type: "button" %>
+                  <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_user_path(user), class: "btn btn-outline-secondary", type: "button" %>
+                  <%= link_to '<i class="fa fa-trash"></i>'.html_safe, user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger", type: "button" %>
+                </div>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
