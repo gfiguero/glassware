@@ -10,7 +10,6 @@ namespace :destroy do
       "Role",
       "Profile",
       "Group",
-      "User",
       "ProfilesRoles",
       "GroupsProfiles",
       "UsersGroups",

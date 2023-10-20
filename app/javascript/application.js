@@ -1,7 +1,6 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
-import "@fortawesome/fontawesome-free/js/all.min"
-import "bootstrap"
+import "flowbite/dist/flowbite.turbo.js";
+import 'flowbite-datepicker';
+import 'flowbite/dist/datepicker.turbo.js';
 import "./controllers"
-import * as bootstrap from "bootstrap"
-import "./components"

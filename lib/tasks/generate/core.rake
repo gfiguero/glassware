@@ -7,13 +7,13 @@ namespace :generate do
 
     scaffolds = [
       "Map",
-      "Role",
-      "Profile",
-      "Group",
-      "User",
-      "ProfilesRoles",
-      "GroupsProfiles",
-      "UsersGroups",
+      #"Group",
+      #"Profile",
+      #"Role",
+      #"User",
+      #"ProfilesRoles",
+      #"GroupsProfiles",
+      #"UsersGroups",
     ]
 
     scaffolds.each do |scaffold|

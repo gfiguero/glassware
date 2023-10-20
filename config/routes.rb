@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :roles
+  resources :profiles
+  resources :groups
+  resources :users
+  resources :maps
+
   # Defines the root path route ("/")
   root "homepage#index"
 
@@ -13,21 +19,12 @@ Rails.application.routes.draw do
     }
   end
 
-  resources :users
-  resources :user_groups
-  resources :groups_profiles
-  resources :profiles_roles
-  resources :groups
-  resources :profiles
-  resources :roles
-  resources :maps
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   scope :api do
     scope :v7 do
-      resources :maps
-    end
+                  resources :users
+        end
   end
 
 end
