@@ -19,6 +19,7 @@
       <table class="w-full border text-sm text-left text-gray-500">
         <thead class="text-xs text-gray-700 bg-gray-200">
         <tr>
+          <th scope="col" class="px-6 py-3">ID</th>
           <th scope="col" class="px-6 py-3">Email</th>
           <th scope="col" class="px-6 py-3">Nombre</th>
           <th scope="col" class="px-6 py-3">Acciones</th>
@@ -27,7 +28,8 @@
         <tbody>
         <% @users.each.with_index do |user| %>
           <tr class="bg-white border-b hover:bg-gray-50">
-            <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap"><%= user.name %></th>
+            <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap"><%= user.id %></th>
+            <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap"><%= user.email %></th>
             <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap"><%= user.name %></th>
             <td class="px-6 py-1 text-right flex gap-1">
               <%= link_to user, class: "button-show" do %>
