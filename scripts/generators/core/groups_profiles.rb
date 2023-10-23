@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GroupsProfilesScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold'
+  BASE_COMMAND_GENERATE = 'rails g model'
   BASE_COMMAND_DESTROY = 'rails d scaffold'
   CLASS_NAME = 'GroupsProfile'
   COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_groups_profiles'
