@@ -8,7 +8,6 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^7.3.0",
-    "@tailwindcss/ui": "^0.7.2",
     "autoprefixer": "^10.4.16",
     "esbuild": "^0.19.5",
     "flowbite": "^1.8.1",
