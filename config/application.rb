@@ -16,6 +16,14 @@ module AimmanagerR1App
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
+    # Load dotenv only in development or test environment
+    if ['development', 'test', 'staging'].include? ENV['RAILS_ENV']
+      Dotenv::Railtie.load
+      Dotenv.load(".env.development.database", ".env.development.ruby") if ENV['RAILS_ENV'] == 'development'
+      Dotenv.load(".env.test.database", ".env.test.ruby") if ENV['RAILS_ENV'] == 'test'
+      Dotenv.load(".env.test.database", ".env.test.ruby") if ENV['RAILS_ENV'] == 'staging'
+    end
+
     config.time_zone = "Santiago"
     # config.eager_load_paths << Rails.root.join("extras")
 

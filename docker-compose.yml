@@ -1,0 +1,17 @@
+version: "3.4"
+
+services:
+  ruby:
+    build:
+      context: .
+      target: app_ruby
+    command: tail -f /dev/null
+    networks:
+      - backend
+    volumes:
+      - .:/app
+    container_name: ruby
+    restart: unless-stopped
+
+networks:
+  backend:
