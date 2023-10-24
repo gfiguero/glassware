@@ -134,11 +134,11 @@ gem 'bootsnap', require: false
 # For traits in ActiveRecord
 #gem 'composition'
 
-group :development, :test do
+group :development, :test, :staging do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'awesome_print'
   gem 'bundler-audit'
-  gem 'coverband'
+  #  gem 'coverband'
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
@@ -155,7 +155,7 @@ group :development do
   gem 'web-console'
 end
 
-group :test do
+group :test, :staging do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'selenium-webdriver'
