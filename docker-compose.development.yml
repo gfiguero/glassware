@@ -9,8 +9,7 @@ services:
       - postgis
       - redis
     env_file:
-      - '.env.development.database'
-      - '.env.development.ruby'
+      - '.env.development'
     ports:
       - "3000:3000"
 
@@ -25,7 +24,7 @@ services:
     ports:
       - "5432:5432"
     env_file:
-      - '.env.development.database'
+      - '.env.development'
 
   redis:
     image: redis:alpine
