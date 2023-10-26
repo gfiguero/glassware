@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include SortableScopes
+  include FilterScopes
 
   def self.devise_modules
     modules = []
@@ -17,4 +19,12 @@ class User < ApplicationRecord
   devise *self.devise_modules
 
   self.table_name = "aim_users"
+
+  has_many :admin_groups, as: :adminable, dependent: :destroy, class_name: 'AdminGroup'
+  has_many :groups, through: :admin_groups, class_name: 'Group'
+
+  scope :groups, -> { joins(:groups) }
+
+  attr_accessor :groups
+
 end

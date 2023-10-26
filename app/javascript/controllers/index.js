@@ -4,8 +4,11 @@
 
 import { application } from "./application"
 
-import PagyController from "./pagy_controller"
-application.register("pagy-initializer", PagyController)
+import GroupsController from "./groups_controller"
+application.register("groups", GroupsController)
 
-import Notification from "./notification_controller"
-application.register("notification", Notification)
+import NotificationController from "./notification_controller"
+application.register("notification", NotificationController)
+
+import PagyController from "./pagy_controller"
+application.register("pagy", PagyController)
