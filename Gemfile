@@ -32,6 +32,9 @@ gem 'redis', '~> 5.0'
 # Redis session store
 gem 'redis-session-store'
 
+# An Active Record Plugin that allows chaining a more DSL-style 'like' or 'not-like' query
+gem 'activerecord-like'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

@@ -1,0 +1,36 @@
+<%= form_with scope: :user_filter, url: users_path, method: :get, html: {'data-controller': "groups"} do |form| %>
+
+  <div class="my-5">
+    <%= form.label :id %>
+    <%= form.text_field :id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :user_groups %>
+    <%= form.select :user_groups, options_for_select([], nil ), {}, {'data-target': "groups.groups_select"} %>
+
+  </div>
+
+  <div class="my-8">
+    <%= form.button class: "text-center items-center rounded-lg py-3 px-5 bg-blue-500 hover:bg-blue-600 text-white block font-medium w-full" do %>
+      <%= I18n.t('users.actions.filter') %>
+    <% end %>
+  </div>
+
+  <div class="my-8">
+    <%= link_to users_path, class: "text-center items-center rounded-lg py-3 px-5 bg-blue-500 hover:bg-blue-600 text-white block font-medium w-full" do %>
+      <%= I18n.t('users.actions.clean') %>
+    <% end %>
+  </div>
+
+<% end %>

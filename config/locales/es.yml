@@ -184,6 +184,7 @@ es:
 
   operator:
     actions: "Acciones"
+    close: "Cerrar"
 
   maps:
     properties:
@@ -203,4 +204,5 @@ es:
     actions:
       new: "Nuevo Usuario"
       filter: "Filtrar Usuarios"
+      clean: "Limpiar Filtro"
 
