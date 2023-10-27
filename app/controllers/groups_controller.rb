@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
   include Pagy::Backend
 
   before_action :set_group, only: %i[ show edit update destroy ]
+  before_action :disabled_pagination
   after_action { pagy_headers_merge(@pagy) if @pagy }
 
   # GET /groups
@@ -55,13 +56,17 @@ class GroupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_group
-      @group = Group.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_group
+    @group = Group.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def group_params
-      params.require(:group).permit(:name, :created_at, :updated_at, :kind)
-    end
+  # Only allow a list of trusted parameters through.
+  def group_params
+    params.require(:group).permit(:name, :created_at, :updated_at, :kind)
+  end
+
+  def disabled_pagination
+    return render json: Group.all if params[:items] == 'all'
+  end
 end

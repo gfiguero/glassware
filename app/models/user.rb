@@ -20,11 +20,7 @@ class User < ApplicationRecord
 
   self.table_name = "aim_users"
 
-  has_many :admin_groups, as: :adminable, dependent: :destroy, class_name: 'AdminGroup'
-  has_many :groups, through: :admin_groups, class_name: 'Group'
-
-  scope :groups, -> { joins(:groups) }
-
-  attr_accessor :groups
+  has_many :admin_groups, -> { unscope(where: :adminable_type).where(adminable_type: 'Aim::User') }, as: :adminable, dependent: :destroy
+  has_many :groups, through: :admin_groups
 
 end

@@ -16,8 +16,8 @@
   </div>
 
   <div class="my-5">
-    <%= form.label :user_groups %>
-    <%= form.select :user_groups, options_for_select([], nil ), {}, {'data-target': "groups.groups_select"} %>
+    <%= form.label :groups %>
+    <%= form.select :groups, options_for_select([], nil ), { include_hidden: false }, {'data-target': "groups.groups_select", multiple: true} %>
 
   </div>
 

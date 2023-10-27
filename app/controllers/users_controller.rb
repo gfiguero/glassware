@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @pagy, @users = pagy(@users)
-    @user_filter = User.new(filter_params)
+    @user_filter = User.new()
 
     respond_to do |format|
       format.html
@@ -74,7 +74,7 @@ class UsersController < ApplicationController
       User.send('sort_by_id')
     end
 
-    filter_params.each { |attribute, value| @users = @users.send(filter_scope(attribute), value) }
+    filter_params.each { |attribute, value| @users = @users.send(filter_scope(attribute), value) } if filter_params.present?
   end
 
   def sort_params
@@ -82,12 +82,7 @@ class UsersController < ApplicationController
   end
 
   def filter_params
-    params[:user_filter].present? ? params.require(:user_filter).permit(
-      :id,
-      :name,
-      :email,
-      :user_groups
-    ).reject{|_, v| v.blank?} : {}
+    params.fetch(:user_filter, {}).permit(:id, :name, :email, groups: []).reject{|key,value| value.blank? }
   end
 
 end
