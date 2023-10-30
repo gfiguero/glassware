@@ -4,11 +4,11 @@
 
 import { application } from "./application"
 
-import GroupsController from "./groups_controller"
-application.register("groups", GroupsController)
-
 import NotificationController from "./notification_controller"
 application.register("notification", NotificationController)
 
 import PagyController from "./pagy_controller"
 application.register("pagy", PagyController)
+
+import { Multiselect } from './multiselect'
+application.register('multiselect', Multiselect)

@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @pagy, @users = pagy(@users)
-    @user_filter = User.new()
 
     respond_to do |format|
       format.html
@@ -82,7 +81,7 @@ class UsersController < ApplicationController
   end
 
   def filter_params
-    params.fetch(:user_filter, {}).permit(:id, :name, :email, groups: []).reject{|key,value| value.blank? }
+    params.permit(:id, :name, :email, groups: []).reject{|key,value| value.blank? }
   end
 
 end

@@ -1,6 +1,13 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "./multiselect.css";
+
+/* old
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+*/
 
 /*
    Notice: this style contains all the rules for pagy-nav, pagy-nav-js and pagy-combo-nav-js
@@ -123,3 +130,4 @@
 .button-delete {
     @apply px-3 py-3 text-xs font-medium text-center inline-flex items-center text-white bg-red-400 rounded-lg hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-200;
 }
+

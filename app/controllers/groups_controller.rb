@@ -16,6 +16,16 @@ class GroupsController < ApplicationController
     end
   end
 
+  # GET /groups/search
+  def search
+    @groups = params[:items].present? ? Group.filter_by_id(params[:items]) : Group.all
+
+    respond_to do |format|
+      format.json
+      format.turbo_stream
+    end
+  end
+
   # GET /groups/1
   def show
   end

@@ -1,24 +1,25 @@
-<%= form_with scope: :user_filter, url: users_path, method: :get, html: {'data-controller': "groups"} do |form| %>
+<%= form_with url: users_path, method: :get, html: {'data-controller': "groups"} do |form| %>
 
   <div class="my-5">
-    <%= form.label :id %>
-    <%= form.text_field :id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= label_tag :id %>
+    <%= text_field_tag :id, params[:id], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= label_tag :name %>
+    <%= text_field_tag :name, params[:name], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :email %>
-    <%= form.text_field :email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :groups %>
-    <%= form.select :groups, options_for_select([], nil ), { include_hidden: false }, {'data-target': "groups.groups_select", multiple: true} %>
-
+    <%= label_tag :groups %>
+    <div data-controller="multiselect" data-multiselect-preload-url-value="/groups/search.json" data-multiselect-selected-value="<%= params[:groups] || [] %>" data-placeholder="Buscar Grupos ..." >
+      <%= select_tag :groups, nil, { include_hidden: false, class: 'multiselect__hidden' ,'data-multiselect-target': "hidden", multiple: true} %>
+    </div>
   </div>
 
   <div class="my-8">
