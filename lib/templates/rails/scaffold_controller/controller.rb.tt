@@ -17,6 +17,16 @@ class <%= controller_class_name %>Controller < ApplicationController
     end
   end
 
+  # GET <%= route_url %>/search.json
+  def search
+    @<%= plural_table_name %> = params[:items].present? ? <%= orm_class.build(class_name) %>.filter_by_id(params[:items]) : <%= orm_class.all(class_name) %>
+
+    respond_to do |format|
+      format.json
+      format.turbo_stream
+    end
+  end
+
   # GET <%= route_url %>/1
   def show
   end
@@ -57,7 +67,6 @@ class <%= controller_class_name %>Controller < ApplicationController
   end
 
   private
-
   # Use callbacks to share common setup or constraints between actions.
   def set_<%= singular_table_name %>
     @<%= singular_table_name %> = <%= orm_class.find(class_name, "params[:id]") %>
