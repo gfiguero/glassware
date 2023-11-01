@@ -1,0 +1,31 @@
+/*
+   Notice: this style contains all the rules for notification
+*/
+
+.notification-notice {
+    @apply bg-blue-200;
+}
+.notification-notice .notification-icon{
+    @apply text-blue-500 bg-blue-50;
+}
+
+.notification-alert {
+    @apply bg-yellow-100;
+}
+.notification-alert .notification-icon{
+    @apply text-yellow-500 bg-yellow-50;
+}
+
+.notification-error {
+    @apply bg-red-200;
+}
+.notification-error  .notification-icon{
+    @apply text-red-400 bg-red-50;
+}
+
+.notification-success {
+    @apply bg-green-200;
+}
+.notification-success .notification-icon {
+    @apply text-green-500 bg-green-100;
+}

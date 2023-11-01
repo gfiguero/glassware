@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :roles
   resources :profiles
-  resources :groups
+  resources :groups do
+    get :search, on: :collection
+  end
   resources :users
   resources :maps
 

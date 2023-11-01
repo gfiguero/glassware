@@ -157,7 +157,6 @@ export default class Multiselect extends Controller {
         })
       }
     } else {
-      this.searchTarget.style.paddingTop = "0"
       this.inputContainerTarget.style.display = ""
       this.previewTarget.innerHTML = ""
     }
