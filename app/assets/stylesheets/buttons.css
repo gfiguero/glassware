@@ -1,0 +1,15 @@
+/*
+   Notice: this style contains all the rules for buttons
+*/
+
+.button-show {
+    @apply px-3 py-3 text-xs font-medium text-center inline-flex items-center text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-200;
+}
+
+.button-edit {
+    @apply px-3 py-3 text-xs font-medium text-center inline-flex items-center text-white bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-200;
+}
+
+.button-delete {
+    @apply px-3 py-3 text-xs font-medium text-center inline-flex items-center text-white bg-red-400 rounded-lg hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-200;
+}

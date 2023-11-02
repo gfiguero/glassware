@@ -62,6 +62,8 @@ GEM
       activemodel (= 7.1.1)
       activesupport (= 7.1.1)
       timeout (>= 0.4.0)
+    activerecord-like (7.0.0)
+      activerecord (~> 7.0, >= 7.0.0)
     activerecord-postgis-adapter (9.0.1)
       activerecord (~> 7.1.0)
       rgeo-activerecord (~> 7.0.0)
@@ -388,6 +390,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activerecord-like
   activerecord-postgis-adapter
   awesome_print
   bootsnap

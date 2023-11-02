@@ -1,0 +1,35 @@
+<%= form_with url: users_path, method: :get, html: {'data-controller': "groups"} do |form| %>
+
+  <div class="my-5">
+    <%= label_tag :id %>
+    <%= text_field_tag :id, params[:id], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= label_tag :name %>
+    <%= text_field_tag :name, params[:name], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= label_tag :groups %>
+    <div data-controller="multiselect" data-multiselect-preload-url-value="/groups/search.json" data-multiselect-selected-value="<%= params[:groups] || [] %>" data-placeholder="Buscar Grupos ..." >
+      <%= select_tag :groups, nil, { include_hidden: false, class: 'multiselect__hidden' ,'data-multiselect-target': "hidden", multiple: true} %>
+    </div>
+  </div>
+
+  <div class="my-8">
+    <%= submit_tag I18n.t('users.actions.filter'), class: "text-center items-center rounded-lg py-3 px-5 bg-blue-500 hover:bg-blue-600 text-white block font-medium w-full" %>
+  </div>
+
+  <div class="my-8">
+    <%= link_to users_path, class: "text-center items-center rounded-lg py-3 px-5 bg-blue-500 hover:bg-blue-600 text-white block font-medium w-full" do %>
+      <%= I18n.t('users.actions.clean') %>
+    <% end %>
+  </div>
+
+<% end %>

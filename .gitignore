@@ -36,6 +36,7 @@
 /node_modules
 dump.rdb
 .env
+.env.*.local
 /.idea
 
 /app/assets/builds/*

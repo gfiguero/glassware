@@ -4,8 +4,11 @@
 
 import { application } from "./application"
 
-import PagyController from "./pagy_controller"
-application.register("pagy-initializer", PagyController)
+import NotificationController from "./notification_controller"
+application.register("notification", NotificationController)
 
-import Notification from "./notification_controller"
-application.register("notification", Notification)
+import PagyController from "./pagy_controller"
+application.register("pagy", PagyController)
+
+import { Multiselect } from './multiselect'
+application.register('multiselect', Multiselect)

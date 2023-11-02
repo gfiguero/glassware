@@ -3,6 +3,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   include Pagy::Backend
 
   before_action :set_<%= singular_table_name %>, only: %i[ show edit update destroy ]
+  before_action :disabled_pagination
   after_action { pagy_headers_merge(@pagy) if @pagy }
 
   # GET <%= route_url %>
@@ -11,6 +12,16 @@ class <%= controller_class_name %>Controller < ApplicationController
 
     respond_to do |format|
       format.html
+      format.json
+      format.turbo_stream
+    end
+  end
+
+  # GET <%= route_url %>/search.json
+  def search
+    @<%= plural_table_name %> = params[:items].present? ? <%= orm_class.build(class_name) %>.filter_by_id(params[:items]) : <%= orm_class.all(class_name) %>
+
+    respond_to do |format|
       format.json
       format.turbo_stream
     end
@@ -56,18 +67,22 @@ class <%= controller_class_name %>Controller < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_<%= singular_table_name %>
-      @<%= singular_table_name %> = <%= orm_class.find(class_name, "params[:id]") %>
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_<%= singular_table_name %>
+    @<%= singular_table_name %> = <%= orm_class.find(class_name, "params[:id]") %>
+  end
 
-    # Only allow a list of trusted parameters through.
-    def <%= "#{singular_table_name}_params" %>
-      <%- if attributes_names.empty? -%>
-      params.fetch(:<%= singular_table_name %>, {})
-      <%- else -%>
-      params.require(:<%= singular_table_name %>).permit(<%= permitted_params %>)
-      <%- end -%>
-    end
+  # Only allow a list of trusted parameters through.
+  def <%= "#{singular_table_name}_params" %>
+    <%- if attributes_names.empty? -%>
+    params.fetch(:<%= singular_table_name %>, {})
+    <%- else -%>
+    params.require(:<%= singular_table_name %>).permit(<%= permitted_params %>)
+    <%- end -%>
+  end
+
+  def disabled_pagination
+    return render json: <%= orm_class.all(class_name) %> if params[:items] == 'all'
+  end
 end
 <% end -%>
