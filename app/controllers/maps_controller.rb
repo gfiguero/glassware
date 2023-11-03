@@ -16,6 +16,16 @@ class MapsController < ApplicationController
     end
   end
 
+  # GET /maps/search.json
+  def search
+    @maps = params[:items].present? ? Map.new.filter_by_id(params[:items]) : Map.all
+
+    respond_to do |format|
+      format.json
+      format.turbo_stream
+    end
+  end
+
   # GET /maps/1
   def show
   end

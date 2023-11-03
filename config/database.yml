@@ -21,27 +21,33 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+  host: <%= ENV['POSTGRES_HOST'] %>
+  port: <%= ENV['POSTGRES_PORT'] %>
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  database:  <%= ENV['POSTGRES_DB'] %>
+
 development:
   <<: *default
-  database:  <%= ENV['POSTGRES_DB'] %>
+  #database:  <%= ENV['POSTGRES_DB'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  username: <%= ENV['POSTGRES_USER'] %>
+  #username: <%= ENV['POSTGRES_USER'] %>
 
   # The password associated with the postgres role (username).
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  #password: <%= ENV['POSTGRES_PASSWORD'] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  host: <%= ENV['POSTGRES_HOST'] %>
+  #host: <%= ENV['POSTGRES_HOST'] %>
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  port: <%= ENV['POSTGRES_PORT'] %>
+  #port: <%= ENV['POSTGRES_PORT'] %>
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -57,7 +63,6 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: aimmanager_r1_app_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +86,3 @@ test:
 #
 production:
   <<: *default
-  database: aimmanager_r1_app_production
-  username: aimmanager_r1_app
-  password: <%= ENV["AIMMANAGER_R1_APP_DATABASE_PASSWORD"] %>
