@@ -3,6 +3,11 @@ class Group < ApplicationRecord
   include SortableScopes
   include FilterScopes
 
-  has_many :admin_groups, dependent: :destroy
-  has_many :users, through: :admin_groups, source: :adminable, source_type: 'Aim::User', class_name: 'User'
+  has_many :users_groups, dependent: :destroy
+  has_many :users, through: :users_groups, source: :groupable, source_type: 'Aim::User', class_name: 'User'
+
+  has_many :groups_profiles, dependent: :destroy
+  has_many :profiles, through: :groups_profiles
+  has_many :roles, through: :profiles
+
 end
