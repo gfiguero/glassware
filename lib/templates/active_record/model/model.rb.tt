@@ -5,8 +5,16 @@ class <%= class_name %> < <%= parent_class_name.classify %>
   include SortableScopes
   include FilterScopes
 <% end -%>
+<% if attributes.map(&:name).include? 'deleted_at' -%>
+  acts_as_paranoid
+<% end -%>
 <% attributes.select(&:reference?).each do |attribute| -%>
+<% if attribute.attr_options[:many_to_many] -%>
+  has_many :<%= attribute.attr_options.keys.last %>, dependent: :destroy
+  has_many :<%= attribute.name %>, through: :<%= attribute.attr_options.keys.last %>
+<% else -%>
   belongs_to :<%= attribute.name %><%= ", polymorphic: true" if attribute.polymorphic? %>
+<% end -%>
 <% end -%>
 <% attributes.select(&:rich_text?).each do |attribute| -%>
   has_rich_text :<%= attribute.name %>
@@ -23,5 +31,14 @@ class <%= class_name %> < <%= parent_class_name.classify %>
 <% if attributes.any?(&:password_digest?) -%>
   has_secure_password
 <% end -%>
+<% if class_name == 'Role' -%>
+  def resource
+    name.split('#', 2).first.split('/', 2).last.to_sym
+  end
+
+  def action
+    name.split('#', 2).last.to_sym
+  end
+<%- end -%>
 end
 <% end -%>

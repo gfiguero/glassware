@@ -1,8 +1,11 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing <%= human_name.downcase %></h1>
+<div class="w-full">
+  <div class="py-2 flex justify-between items-center">
+    <h1 class="font-bold text-4xl"><%%= I18n.t '<%= plural_table_name %>.properties.title' %></h1>
+    <h3 class="font-bold text-xl"><%%= I18n.t '<%= plural_table_name %>.actions.edit', id: @<%= singular_table_name %>.id %></h3>
+  </div>
+
+  <%%= render "buttons" %>
 
   <%%= render "form", <%= singular_table_name %>: @<%= singular_table_name %> %>
 
-  <%%= link_to "Show this <%= human_name.downcase %>", @<%= singular_table_name %>, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%%= link_to "Back to <%= human_name.pluralize.downcase %>", <%= index_helper %>_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>

@@ -3,12 +3,13 @@ class <%= controller_class_name %>Controller < ApplicationController
   include Pagy::Backend
 
   before_action :set_<%= singular_table_name %>, only: %i[ show edit update destroy ]
+  before_action :set_<%= plural_table_name %>, only: :index
   before_action :disabled_pagination
   after_action { pagy_headers_merge(@pagy) if @pagy }
 
   # GET <%= route_url %>
   def index
-    @pagy, @<%= plural_table_name %> = pagy(<%= orm_class.all(class_name) %>)
+    @pagy, @<%= plural_table_name %> = pagy(@<%= plural_table_name %>)
 
     respond_to do |format|
       format.html
@@ -79,6 +80,24 @@ class <%= controller_class_name %>Controller < ApplicationController
     <%- else -%>
     params.require(:<%= singular_table_name %>).permit(<%= permitted_params %>)
     <%- end -%>
+  end
+
+  def set_<%= plural_table_name %>
+    @<%= plural_table_name %> = if sort_params.present?
+      <%= class_name %>.send(sort_scope(sort_params[:sort_column].to_s), sort_params[:sort_direction])
+    else
+      <%= class_name %>.send('sort_by_id')
+    end
+
+    filter_params.each { |attribute, value| @<%= plural_table_name %> = @<%= plural_table_name %>.send(filter_scope(attribute), value) } if filter_params.present?
+  end
+
+  def sort_params
+    params.permit(:sort_column, :sort_direction)
+  end
+
+  def filter_params
+    params.permit(:id, <%= permitted_params %>).reject{|key,value| value.blank? }
   end
 
   def disabled_pagination
