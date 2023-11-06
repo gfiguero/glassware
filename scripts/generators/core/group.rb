@@ -8,8 +8,6 @@ class GroupScaffold
 
   FIELDS = [
     'name:string',
-    'created_at:datetime',
-    'updated_at:datetime',
     'kind:string',
   ].freeze
 

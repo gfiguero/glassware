@@ -4,7 +4,8 @@ RSpec.describe "roles/edit", type: :view do
   let(:role) {
     Role.create!(
       name: "MyString",
-      usage: "MyString"
+      usage: "MyString",
+      profiles: nil
     )
   }
 
@@ -20,6 +21,8 @@ RSpec.describe "roles/edit", type: :view do
       assert_select "input[name=?]", "role[name]"
 
       assert_select "input[name=?]", "role[usage]"
+
+      assert_select "input[name=?]", "role[profiles_id]"
     end
   end
 end

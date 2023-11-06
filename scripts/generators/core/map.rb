@@ -56,7 +56,6 @@ class MapScaffold
     'map_orientation:float',
     'fusion_table_on_start:boolean',
     'time_zone:string:index',
-    'deleted_at:datetime:index',
     'sales_room_m2:float',
     'property_type:integer',
     'cost_center:string',

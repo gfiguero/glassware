@@ -1,11 +1,29 @@
 Rails.application.routes.draw do
-  resources :roles
-  resources :profiles
-  resources :groups do
-    get :search, on: :collection
+  resources :roles do
+    collection do
+      get :search
+    end
   end
-  resources :users
-  resources :maps
+  resources :profiles do
+    collection do
+      get :search
+    end
+  end
+  resources :groups do
+    collection do
+      get :search
+    end
+  end
+  resources :users do
+    collection do
+      get :search
+    end
+  end
+  resources :maps do
+    collection do
+      get :search
+    end
+  end
 
   # Defines the root path route ("/")
   root "homepage#index"
@@ -25,8 +43,8 @@ Rails.application.routes.draw do
 
   scope :api do
     scope :v7 do
-                  resources :users
-        end
+      resources :users
+    end
   end
 
 end

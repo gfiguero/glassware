@@ -3,7 +3,7 @@
     <svg class="w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
       <path d="M18.85 1.1A1.99 1.99 0 0 0 17.063 0H2.937a2 2 0 0 0-1.566 3.242L6.99 9.868 7 14a1 1 0 0 0 .4.8l4 3A1 1 0 0 0 13 17l.01-7.134 5.66-6.676a1.99 1.99 0 0 0 .18-2.09Z"/>
     </svg>
-    <%= I18n.t('maps.actions.filter') %>
+    <%= I18n.t('roles.actions.filter') %>
   </h5>
 
   <button type="button" data-drawer-hide="drawer-contact" aria-controls="drawer-contact" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 right-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white" >
@@ -13,7 +13,7 @@
     <span class="sr-only">Cerrar</span>
   </button>
 
-  <%= form_tag maps_path, method: :get do %>
+  <%= form_tag roles_path, method: :get do %>
 
     <div class="my-5">
       <%= label_tag :id %>
@@ -26,14 +26,14 @@
     </div>
 
     <div class="my-8">
-      <%= submit_tag I18n.t('maps.actions.filter'), class: "text-center items-center rounded-lg py-3 px-5 bg-blue-500 hover:bg-blue-600 text-white block font-medium w-full" %>
+      <%= submit_tag I18n.t('roles.actions.filter'), class: "text-center items-center rounded-lg py-3 px-5 bg-blue-500 hover:bg-blue-600 text-white block font-medium w-full" %>
     </div>
 
   <% end %>
 
   <div class="my-8">
-    <%= link_to maps_path, class: "text-center items-center rounded-lg py-3 px-5 bg-blue-500 hover:bg-blue-600 text-white block font-medium w-full" do %>
-      <%= I18n.t('maps.actions.clean') %>
+    <%= link_to roles_path, class: "text-center items-center rounded-lg py-3 px-5 bg-blue-500 hover:bg-blue-600 text-white block font-medium w-full" do %>
+      <%= I18n.t('roles.actions.clean') %>
     <% end %>
   </div>
 

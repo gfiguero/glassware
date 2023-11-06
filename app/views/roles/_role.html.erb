@@ -1,22 +1,12 @@
 <div id="<%= dom_id role %>">
   <p class="my-5">
+    <strong class="block font-medium mb-1">Id:</strong>
+    <%= role.id %>
+  </p>
+
+  <p class="my-5">
     <strong class="block font-medium mb-1">Name:</strong>
     <%= role.name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Created at:</strong>
-    <%= role.created_at %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Updated at:</strong>
-    <%= role.updated_at %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Usage:</strong>
-    <%= role.usage %>
   </p>
 
   <% if action_name != "show" %>

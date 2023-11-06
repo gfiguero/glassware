@@ -7,13 +7,15 @@ RSpec.describe "profiles/index", type: :view do
         name: "Name",
         description: "MyText",
         usage: "Usage",
-        initial_role_ids: "MyText"
+        initial_role_ids: "MyText",
+        roles: nil
       ),
       Profile.create!(
         name: "Name",
         description: "MyText",
         usage: "Usage",
-        initial_role_ids: "MyText"
+        initial_role_ids: "MyText",
+        roles: nil
       )
     ])
   end
@@ -25,5 +27,6 @@ RSpec.describe "profiles/index", type: :view do
     assert_select cell_selector, text: Regexp.new("MyText".to_s), count: 2
     assert_select cell_selector, text: Regexp.new("Usage".to_s), count: 2
     assert_select cell_selector, text: Regexp.new("MyText".to_s), count: 2
+    assert_select cell_selector, text: Regexp.new(nil.to_s), count: 2
   end
 end

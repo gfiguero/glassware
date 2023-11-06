@@ -6,12 +6,9 @@ class GroupsProfilesScaffold
   CLASS_NAME = 'GroupsProfile'
   COMMAND_OPTIONS = '--skip-migration --force --v1_table_name aim_groups_profiles'
 
-
   FIELDS = [
     'group:references',
     'profile:references',
-    'created_at:datetime',
-    'updated_at:datetime',
   ].freeze
 
   def generate_command

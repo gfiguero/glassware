@@ -20,8 +20,6 @@ class UserScaffold
     'current_sign_in_ip:string',
     'last_sign_in_ip:string',
     'role:string',
-    'created_at:datetime',
-    'updated_at:datetime',
     'token:string',
     'deleted_at:datetime:index',
     'map_id:integer',

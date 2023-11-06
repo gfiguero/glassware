@@ -190,19 +190,74 @@ es:
     properties:
       title: "Plazas"
     attributes:
+      id: "ID"
       name: "Nombre"
     actions:
+      index: "Volver a Plazas"
       new: "Nueva Plaza"
       filter: "Filtrar Plazas"
+      show: "Ver Plaza %{id}"
+      edit: "Editar Plaza %{id}"
+      delete: "Borrar Plaza %{id}"
+      clean: "Limpiar Filtro"
 
   users:
     properties:
       title: "Usuarios"
     attributes:
+      id: "ID"
       name: "Nombre"
       email: "Email"
     actions:
+      index: "Volver a Usuarios"
       new: "Nuevo Usuario"
+      show: "Ver Usuario %{id}"
+      edit: "Editar Usuario %{id}"
+      delete: "Borrar Usuario %{id}"
       filter: "Filtrar Usuarios"
       clean: "Limpiar Filtro"
 
+  groups:
+    properties:
+      title: "Grupos"
+    attributes:
+      id: "ID"
+      name: "Nombre"
+    actions:
+      index: "Volver a Grupos"
+      new: "Nuevo Grupo"
+      show: "Ver Grupo %{id}"
+      edit: "Editar Grupo %{id}"
+      delete: "Borrar Grupo %{id}"
+      filter: "Filtrar Grupos"
+      clean: "Limpiar Filtro"
+
+  profiles:
+    properties:
+      title: "Perfiles"
+    attributes:
+      id: "ID"
+      name: "Nombre"
+    actions:
+      index: "Volver a Perfiles"
+      new: "Nuevo Perfil"
+      show: "Ver Perfil %{id}"
+      edit: "Editar Perfil %{id}"
+      delete: "Borrar Perfil %{id}"
+      filter: "Filtrar Perfiles"
+      clean: "Limpiar Filtro"
+
+  roles:
+    properties:
+      title: "Roles"
+    attributes:
+      id: "ID"
+      name: "Nombre"
+    actions:
+      index: "Volver a Roles"
+      new: "Nuevo Rol"
+      show: "Ver Rol %{id}"
+      edit: "Editar Rol %{id}"
+      delete: "Borrar Rol %{id}"
+      filter: "Filtrar Roles"
+      clean: "Limpiar Filtro"

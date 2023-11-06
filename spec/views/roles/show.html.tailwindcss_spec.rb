@@ -4,7 +4,8 @@ RSpec.describe "roles/show", type: :view do
   before(:each) do
     assign(:role, Role.create!(
       name: "Name",
-      usage: "Usage"
+      usage: "Usage",
+      profiles: nil
     ))
   end
 
@@ -12,5 +13,6 @@ RSpec.describe "roles/show", type: :view do
     render
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/Usage/)
+    expect(rendered).to match(//)
   end
 end

@@ -8,11 +8,10 @@ class ProfileScaffold
 
   FIELDS = [
     'name:string',
-    'created_at:datetime',
-    'updated_at:datetime',
     'description:text',
     'usage:string',
     'initial_role_ids:text',
+    'roles:references{many_to_many,profiles_roles}',
   ].freeze
 
   def generate_command

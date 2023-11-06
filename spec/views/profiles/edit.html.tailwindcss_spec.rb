@@ -6,7 +6,8 @@ RSpec.describe "profiles/edit", type: :view do
       name: "MyString",
       description: "MyText",
       usage: "MyString",
-      initial_role_ids: "MyText"
+      initial_role_ids: "MyText",
+      roles: nil
     )
   }
 
@@ -26,6 +27,8 @@ RSpec.describe "profiles/edit", type: :view do
       assert_select "input[name=?]", "profile[usage]"
 
       assert_select "textarea[name=?]", "profile[initial_role_ids]"
+
+      assert_select "input[name=?]", "profile[roles_id]"
     end
   end
 end

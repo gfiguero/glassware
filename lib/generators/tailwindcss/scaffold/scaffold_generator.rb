@@ -23,11 +23,12 @@ module Tailwindcss
         end
 
         template "partial.html.erb", File.join("app/views", controller_file_path, "_#{singular_name}.html.erb")
+        template "partial_row.html.erb", File.join("app/views", controller_file_path, "_#{singular_name}_row.html.erb")
       end
 
       private
         def available_views
-          %w(index edit show new _form _filter)
+          %w(index edit show new _form _filter _buttons)
         end
     end
   end

@@ -11,6 +11,7 @@ class RoleScaffold
     'created_at:datetime',
     'updated_at:datetime',
     'usage:string',
+    'profiles:references{many_to_many,profiles_roles}',
   ].freeze
 
   def generate_command

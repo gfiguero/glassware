@@ -9,8 +9,6 @@ class ProfilesRolesScaffold
   FIELDS = [
     'role:references',
     'profile:references',
-    'created_at:datetime',
-    'updated_at:datetime',
   ].freeze
 
   def generate_command

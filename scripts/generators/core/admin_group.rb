@@ -9,8 +9,6 @@ class AdminGroupScaffold
   FIELDS = [
     'group:references',
     'adminable:references{polymorphic}',
-    'created_at:datetime',
-    'updated_at:datetime',
   ].freeze
 
   def generate_command
