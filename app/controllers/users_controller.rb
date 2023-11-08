@@ -84,4 +84,7 @@ class UsersController < ApplicationController
     params.permit(:id, :name, :email, groups: []).reject{|key,value| value.blank? }
   end
 
+  def disabled_pagination
+    return render json: Role.all if params[:items] == 'all'
+  end
 end

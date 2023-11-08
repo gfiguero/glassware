@@ -1,16 +1,14 @@
 # frozen_string_literal: true
 
-class GroupScaffold
-  BASE_COMMAND_GENERATE = 'rails g scaffold'
+class UserGroupScaffold
+  BASE_COMMAND_GENERATE = 'rails g model'
   BASE_COMMAND_DESTROY = 'rails d scaffold'
-  CLASS_NAME = 'Group'
-  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name groups'
+  CLASS_NAME = 'UserGroup'
+  COMMAND_OPTIONS = '--skip-migration --force --v1_table_name admin_groups'
 
   FIELDS = [
-    'name:string',
-    'kind:string',
-    'users:references{many_to_many,users_groups}',
-    'profiles:references{many_to_many,groups_profiles}',
+    'group:references',
+    'groupable:references{polymorphic}',
   ].freeze
 
   def generate_command

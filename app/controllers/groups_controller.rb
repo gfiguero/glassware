@@ -1,13 +1,15 @@
 class GroupsController < ApplicationController
+  load_and_authorize_resource
   include Pagy::Backend
 
   before_action :set_group, only: %i[ show edit update destroy ]
+  before_action :set_groups, only: :index
   before_action :disabled_pagination
   after_action { pagy_headers_merge(@pagy) if @pagy }
 
   # GET /groups
   def index
-    @pagy, @groups = pagy(Group.all)
+    @pagy, @groups = pagy(@groups)
 
     respond_to do |format|
       format.html
@@ -74,6 +76,20 @@ class GroupsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def group_params
     params.require(:group).permit(:name, :created_at, :updated_at, :kind)
+  end
+
+  def set_groups
+    @groups = Group.accessible_by(current_ability)
+    @groups = @groups.send(sort_scope(sort_params[:sort_column].to_s), sort_params[:sort_direction]) if sort_params.present?
+    filter_params.each { |attribute, value| @groups = @groups.send(filter_scope(attribute), value) } if filter_params.present?
+  end
+
+  def sort_params
+    params.permit(:sort_column, :sort_direction)
+  end
+
+  def filter_params
+    params.permit(:id, :name, profiles: []).reject{|key,value| value.blank? }
   end
 
   def disabled_pagination
