@@ -186,6 +186,13 @@ es:
     actions: "Acciones"
     close: "Cerrar"
 
+  home:
+    message:
+      created: 'El elemento de prueba ha sido creado'
+      updated: 'El elemento de prueba ha sido actualizado'
+      deleted: 'El elemento de prueba ha sido borrado'
+
+
   maps:
     properties:
       title: "Plazas"
@@ -261,3 +268,7 @@ es:
       delete: "Borrar Rol %{id}"
       filter: "Filtrar Roles"
       clean: "Limpiar Filtro"
+    message:
+      created: "Rol creado exitosamente"
+      updated: "Rol actualizado exitosamente"
+      destroyed: "Rol eliminado exitosamente"

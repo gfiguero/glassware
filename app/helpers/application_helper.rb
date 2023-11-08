@@ -5,9 +5,12 @@ module ApplicationHelper
   def notification_class(level)
     case level
     when :notice then "notification-notice"
-    when :success then "notification-success"
-    when :error then "notification-error"
     when :alert then "notification-alert"
+    when :error then "notification-error"
+    when :success then "notification-success"
+    when :created then "notification-created"
+    when :updated then "notification-updated"
+    when :deleted then "notification-deleted"
     end
   end
 
