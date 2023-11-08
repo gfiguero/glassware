@@ -12,6 +12,7 @@ class ProfileScaffold
     'usage:string',
     'initial_role_ids:text',
     'roles:references{many_to_many,profiles_roles}',
+    'groups:references{many_to_many,groups_profiles}',
   ].freeze
 
   def generate_command

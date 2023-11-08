@@ -25,8 +25,6 @@ class MapScaffold
     'depth:integer',
     'kind:string',
     'alias:string',
-    'created_at:datetime',
-    'updated_at:datetime',
     'last_update:datetime',
     'last_change:datetime',
     'zoom_matrix:hstore',

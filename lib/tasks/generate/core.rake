@@ -6,13 +6,13 @@ namespace :generate do
     puts 'Starting generator:core task...'
 
     scaffolds = [
-      #"Map",
+      "Map",
       #"User",
       #"UsersGroups",
       #"Group",
-      #"GroupsProfiles",
-      #"Profile",
-      #"ProfilesRoles",
+      "GroupsProfiles",
+      "Profile",
+      "ProfilesRoles",
       "Role",
     ]
 
