@@ -1,4 +1,5 @@
 class MapsController < ApplicationController
+  load_and_authorize_resource
   include Pagy::Backend
 
   before_action :set_map, only: %i[ show edit update destroy ]
@@ -19,7 +20,7 @@ class MapsController < ApplicationController
 
   # GET /maps/search.json
   def search
-    @maps = params[:items].present? ? Map.new.filter_by_id(params[:items]) : Map.all
+    @maps = params[:items].present? ? Map.new.filter_by_id(params[:items]) : Map.accessible_by(current_ability)
 
     respond_to do |format|
       format.json
@@ -45,7 +46,7 @@ class MapsController < ApplicationController
     @map = Map.new(map_params)
 
     if @map.save
-      redirect_to @map, notice: "Map was successfully created."
+      redirect_to @map, created: I18n.t('map.message.created')
     else
       render :new, status: :unprocessable_entity
     end
@@ -54,7 +55,7 @@ class MapsController < ApplicationController
   # PATCH/PUT /maps/1
   def update
     if @map.update(map_params)
-      redirect_to @map, notice: "Map was successfully updated.", status: :see_other
+      redirect_to @map, updated: I18n.t('map.message.updated'), status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -63,7 +64,7 @@ class MapsController < ApplicationController
   # DELETE /maps/1
   def destroy
     @map.destroy!
-    redirect_to maps_url, notice: "Map was successfully destroyed.", status: :see_other
+    redirect_to maps_url, delete: I18n.t('map.message.deleted'), status: :see_other
   end
 
   private
@@ -74,16 +75,12 @@ class MapsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def map_params
-    params.require(:map).permit(:name, :top_left_x, :top_left_y, :max_zoom, :bottom_right_x, :max_resolution, :bottom_right_y, :stores_show_from_zoom, :features_radius, :range, :street, :street_number, :parent_id, :lft, :rgt, :depth, :kind, :alias, :created_at, :updated_at, :last_update, :last_change, :zoom_matrix, :adjustment_data, :map_radius, :map_latitude, :map_longitude, :time_between_notifications, :max_notifications_per_period, :notifications_time_period, :scaled_stores, :properties, :until_zoom, :real_min_zoom, :initial_zoom, :authorization_user_manual_file_name, :authorization_user_manual_content_type, :authorization_user_manual_file_size, :authorization_user_manual_updated_at, :loader_version, :tiles_version, :incident_positioning_system, :country_code, :region_code, :map_classification_id, :map_district_id, :map_orientation, :fusion_table_on_start, :time_zone, :sales_room_m2, :property_type, :cost_center, :show_custom_fields)
+    params.require(:map).permit(:name, :top_left_x, :top_left_y, :max_zoom, :bottom_right_x, :max_resolution, :bottom_right_y, :stores_show_from_zoom, :features_radius, :range, :street, :street_number, :parent_id, :lft, :rgt, :depth, :kind, :alias, :last_update, :last_change, :zoom_matrix, :adjustment_data, :map_radius, :map_latitude, :map_longitude, :time_between_notifications, :max_notifications_per_period, :notifications_time_period, :scaled_stores, :properties, :until_zoom, :real_min_zoom, :initial_zoom, :authorization_user_manual_file_name, :authorization_user_manual_content_type, :authorization_user_manual_file_size, :authorization_user_manual_updated_at, :loader_version, :tiles_version, :incident_positioning_system, :country_code, :region_code, :map_classification_id, :map_district_id, :map_orientation, :fusion_table_on_start, :time_zone, :sales_room_m2, :property_type, :cost_center, :show_custom_fields)
   end
 
   def set_maps
-    @maps = if sort_params.present?
-      Map.send(sort_scope(sort_params[:sort_column].to_s), sort_params[:sort_direction])
-    else
-      Map.send('sort_by_id')
-    end
-
+    @maps = Map.accessible_by(current_ability)
+    @maps = @maps.send(sort_scope(sort_params[:sort_column].to_s), sort_params[:sort_direction]) if sort_params.present?
     filter_params.each { |attribute, value| @maps = @maps.send(filter_scope(attribute), value) } if filter_params.present?
   end
 
@@ -92,7 +89,7 @@ class MapsController < ApplicationController
   end
 
   def filter_params
-    params.permit(:id, :name, :top_left_x, :top_left_y, :max_zoom, :bottom_right_x, :max_resolution, :bottom_right_y, :stores_show_from_zoom, :features_radius, :range, :street, :street_number, :parent_id, :lft, :rgt, :depth, :kind, :alias, :created_at, :updated_at, :last_update, :last_change, :zoom_matrix, :adjustment_data, :map_radius, :map_latitude, :map_longitude, :time_between_notifications, :max_notifications_per_period, :notifications_time_period, :scaled_stores, :properties, :until_zoom, :real_min_zoom, :initial_zoom, :authorization_user_manual_file_name, :authorization_user_manual_content_type, :authorization_user_manual_file_size, :authorization_user_manual_updated_at, :loader_version, :tiles_version, :incident_positioning_system, :country_code, :region_code, :map_classification_id, :map_district_id, :map_orientation, :fusion_table_on_start, :time_zone, :sales_room_m2, :property_type, :cost_center, :show_custom_fields).reject{|key,value| value.blank? }
+    params.permit(:id, :name, :top_left_x, :top_left_y, :max_zoom, :bottom_right_x, :max_resolution, :bottom_right_y, :stores_show_from_zoom, :features_radius, :range, :street, :street_number, :parent_id, :lft, :rgt, :depth, :kind, :alias, :last_update, :last_change, :zoom_matrix, :adjustment_data, :map_radius, :map_latitude, :map_longitude, :time_between_notifications, :max_notifications_per_period, :notifications_time_period, :scaled_stores, :properties, :until_zoom, :real_min_zoom, :initial_zoom, :authorization_user_manual_file_name, :authorization_user_manual_content_type, :authorization_user_manual_file_size, :authorization_user_manual_updated_at, :loader_version, :tiles_version, :incident_positioning_system, :country_code, :region_code, :map_classification_id, :map_district_id, :map_orientation, :fusion_table_on_start, :time_zone, :sales_room_m2, :property_type, :cost_center, :show_custom_fields).reject{|key,value| value.blank? }
   end
 
   def disabled_pagination

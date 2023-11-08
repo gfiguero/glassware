@@ -1,4 +1,5 @@
 class RolesController < ApplicationController
+  load_and_authorize_resource
   include Pagy::Backend
 
   before_action :set_role, only: %i[ show edit update destroy ]
@@ -19,7 +20,7 @@ class RolesController < ApplicationController
 
   # GET /roles/search.json
   def search
-    @roles = params[:items].present? ? Role.new.filter_by_id(params[:items]) : Role.all
+    @roles = params[:items].present? ? Role.new.filter_by_id(params[:items]) : Role.accessible_by(current_ability)
 
     respond_to do |format|
       format.json
@@ -45,7 +46,7 @@ class RolesController < ApplicationController
     @role = Role.new(role_params)
 
     if @role.save
-      redirect_to @role, notice: "Role was successfully created."
+      redirect_to @role, created: I18n.t('role.message.created')
     else
       render :new, status: :unprocessable_entity
     end
@@ -54,7 +55,7 @@ class RolesController < ApplicationController
   # PATCH/PUT /roles/1
   def update
     if @role.update(role_params)
-      redirect_to @role, notice: "Role was successfully updated.", status: :see_other
+      redirect_to @role, updated: I18n.t('role.message.updated'), status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -63,7 +64,7 @@ class RolesController < ApplicationController
   # DELETE /roles/1
   def destroy
     @role.destroy!
-    redirect_to roles_url, notice: "Role was successfully destroyed.", status: :see_other
+    redirect_to roles_url, delete: I18n.t('role.message.deleted'), status: :see_other
   end
 
   private
@@ -74,16 +75,12 @@ class RolesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def role_params
-    params.require(:role).permit(:name, :created_at, :updated_at, :usage, :profiles_id)
+    params.require(:role).permit(:name, :usage, :profiles_id)
   end
 
   def set_roles
-    @roles = if sort_params.present?
-      Role.send(sort_scope(sort_params[:sort_column].to_s), sort_params[:sort_direction])
-    else
-      Role.send('sort_by_id')
-    end
-
+    @roles = Role.accessible_by(current_ability)
+    @roles = @roles.send(sort_scope(sort_params[:sort_column].to_s), sort_params[:sort_direction]) if sort_params.present?
     filter_params.each { |attribute, value| @roles = @roles.send(filter_scope(attribute), value) } if filter_params.present?
   end
 
@@ -92,7 +89,7 @@ class RolesController < ApplicationController
   end
 
   def filter_params
-    params.permit(:id, :name, :created_at, :updated_at, :usage, :profiles_id).reject{|key,value| value.blank? }
+    params.permit(:id, :name, :usage, :profiles_id).reject{|key,value| value.blank? }
   end
 
   def disabled_pagination

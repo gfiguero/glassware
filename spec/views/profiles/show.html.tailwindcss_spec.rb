@@ -7,7 +7,8 @@ RSpec.describe "profiles/show", type: :view do
       description: "MyText",
       usage: "Usage",
       initial_role_ids: "MyText",
-      roles: nil
+      roles: nil,
+      groups: nil
     ))
   end
 
@@ -17,6 +18,7 @@ RSpec.describe "profiles/show", type: :view do
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/Usage/)
     expect(rendered).to match(/MyText/)
+    expect(rendered).to match(//)
     expect(rendered).to match(//)
   end
 end

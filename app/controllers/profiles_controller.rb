@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  load_and_authorize_resource
   include Pagy::Backend
 
   before_action :set_profile, only: %i[ show edit update destroy ]
@@ -19,7 +20,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/search.json
   def search
-    @profiles = params[:items].present? ? Profile.new.filter_by_id(params[:items]) : Profile.all
+    @profiles = params[:items].present? ? Profile.new.filter_by_id(params[:items]) : Profile.accessible_by(current_ability)
 
     respond_to do |format|
       format.json
@@ -45,7 +46,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
 
     if @profile.save
-      redirect_to @profile, notice: "Profile was successfully created."
+      redirect_to @profile, created: I18n.t('profile.message.created')
     else
       render :new, status: :unprocessable_entity
     end
@@ -54,7 +55,7 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   def update
     if @profile.update(profile_params)
-      redirect_to @profile, notice: "Profile was successfully updated.", status: :see_other
+      redirect_to @profile, updated: I18n.t('profile.message.updated'), status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -63,7 +64,7 @@ class ProfilesController < ApplicationController
   # DELETE /profiles/1
   def destroy
     @profile.destroy!
-    redirect_to profiles_url, notice: "Profile was successfully destroyed.", status: :see_other
+    redirect_to profiles_url, delete: I18n.t('profile.message.deleted'), status: :see_other
   end
 
   private
@@ -74,16 +75,12 @@ class ProfilesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def profile_params
-    params.require(:profile).permit(:name, :description, :usage, :initial_role_ids, :roles_id)
+    params.require(:profile).permit(:name, :description, :usage, :initial_role_ids, :roles_id, :groups_id)
   end
 
   def set_profiles
-    @profiles = if sort_params.present?
-      Profile.send(sort_scope(sort_params[:sort_column].to_s), sort_params[:sort_direction])
-    else
-      Profile.send('sort_by_id')
-    end
-
+    @profiles = Profile.accessible_by(current_ability)
+    @profiles = @profiles.send(sort_scope(sort_params[:sort_column].to_s), sort_params[:sort_direction]) if sort_params.present?
     filter_params.each { |attribute, value| @profiles = @profiles.send(filter_scope(attribute), value) } if filter_params.present?
   end
 
@@ -92,7 +89,7 @@ class ProfilesController < ApplicationController
   end
 
   def filter_params
-    params.permit(:id, :name, :description, :usage, :initial_role_ids, :roles_id).reject{|key,value| value.blank? }
+    params.permit(:id, :name, :description, :usage, :initial_role_ids, :roles_id, :groups_id).reject{|key,value| value.blank? }
   end
 
   def disabled_pagination

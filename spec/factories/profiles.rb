@@ -5,5 +5,6 @@ FactoryBot.define do
     add_attribute(:usage) { "MyString" }
     add_attribute(:initial_role_ids) { "MyText" }
     add_attribute(:roles) { nil }
+    add_attribute(:groups) { nil }
   end
 end

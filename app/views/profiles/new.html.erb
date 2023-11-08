@@ -1,7 +1,11 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New profile</h1>
+<div class="w-full">
+  <div class="py-2 flex justify-between items-center">
+    <h1 class="font-bold text-4xl"><%= I18n.t 'profiles.properties.title' %></h1>
+    <h3 class="font-bold text-xl"><%= I18n.t 'profiles.actions.new', id: @profile.id %></h3>
+  </div>
+
+  <%= render "buttons" %>
 
   <%= render "form", profile: @profile %>
 
-  <%= link_to "Back to profiles", profiles_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>

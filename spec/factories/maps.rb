@@ -18,10 +18,8 @@ FactoryBot.define do
     add_attribute(:depth) { 1 }
     add_attribute(:kind) { "MyString" }
     add_attribute(:alias) { "MyString" }
-    add_attribute(:created_at) { "2023-11-05 10:45:39" }
-    add_attribute(:updated_at) { "2023-11-05 10:45:39" }
-    add_attribute(:last_update) { "2023-11-05 10:45:39" }
-    add_attribute(:last_change) { "2023-11-05 10:45:39" }
+    add_attribute(:last_update) { "2023-11-08 17:52:19" }
+    add_attribute(:last_change) { "2023-11-08 17:52:19" }
     add_attribute(:zoom_matrix) { "" }
     add_attribute(:adjustment_data) { "" }
     add_attribute(:map_radius) { 1.5 }
@@ -38,7 +36,7 @@ FactoryBot.define do
     add_attribute(:authorization_user_manual_file_name) { "MyString" }
     add_attribute(:authorization_user_manual_content_type) { "MyString" }
     add_attribute(:authorization_user_manual_file_size) { 1 }
-    add_attribute(:authorization_user_manual_updated_at) { "2023-11-05 10:45:39" }
+    add_attribute(:authorization_user_manual_updated_at) { "2023-11-08 17:52:19" }
     add_attribute(:loader_version) { 1 }
     add_attribute(:tiles_version) { 1 }
     add_attribute(:incident_positioning_system) { "MyString" }
