@@ -3,12 +3,19 @@
 */
 
 .notification {
-    @apply flex items-center w-full max-w-xs p-5 mb-4 text-gray-500 bg-white rounded-lg shadow
+    @apply flex items-center w-full max-w-xs p-5 mb-4 text-gray-500 bg-white rounded-lg shadow;
 }
 
 .notification-notice {
     @apply bg-blue-200;
 }
+
+.notification-icon {
+    @apply inline-flex flex-shrink-0 justify-center items-center;
+    @apply rounded-lg;
+    @apply w-8 h-8 z-10;
+}
+
 .notification-notice .notification-icon{
     @apply text-blue-500 bg-blue-50;
 }
