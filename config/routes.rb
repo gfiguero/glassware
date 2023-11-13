@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+
+  # Test Resources
+  resources :test_tags do
+    collection do
+      get :search
+    end
+  end
+  resources :test_articles do
+    collection do
+      get :search
+    end
+  end
+  resources :test_posts do
+    collection do
+      get :search
+    end
+  end
+
+  # Core Resources
   resources :roles do
     collection do
       get :search

@@ -203,9 +203,9 @@ es:
       index: "Volver a Plazas"
       new: "Nueva Plaza"
       filter: "Filtrar Plazas"
-      show: "Ver Plaza %{id}"
-      edit: "Editar Plaza %{id}"
-      delete: "Borrar Plaza %{id}"
+      show: "Ver Plaza"
+      edit: "Editar Plaza"
+      delete: "Borrar Plaza"
       clean: "Limpiar Filtro"
 
   users:
@@ -218,9 +218,9 @@ es:
     actions:
       index: "Volver a Usuarios"
       new: "Nuevo Usuario"
-      show: "Ver Usuario %{id}"
-      edit: "Editar Usuario %{id}"
-      delete: "Borrar Usuario %{id}"
+      show: "Ver Usuario"
+      edit: "Editar Usuario"
+      delete: "Borrar Usuario"
       filter: "Filtrar Usuarios"
       clean: "Limpiar Filtro"
 
@@ -233,9 +233,9 @@ es:
     actions:
       index: "Volver a Grupos"
       new: "Nuevo Grupo"
-      show: "Ver Grupo %{id}"
-      edit: "Editar Grupo %{id}"
-      delete: "Borrar Grupo %{id}"
+      show: "Ver Grupo"
+      edit: "Editar Grupo"
+      delete: "Borrar Grupo"
       filter: "Filtrar Grupos"
       clean: "Limpiar Filtro"
 
@@ -248,9 +248,9 @@ es:
     actions:
       index: "Volver a Perfiles"
       new: "Nuevo Perfil"
-      show: "Ver Perfil %{id}"
-      edit: "Editar Perfil %{id}"
-      delete: "Borrar Perfil %{id}"
+      show: "Ver Perfil"
+      edit: "Editar Perfil"
+      delete: "Borrar Perfil"
       filter: "Filtrar Perfiles"
       clean: "Limpiar Filtro"
 
@@ -263,9 +263,9 @@ es:
     actions:
       index: "Volver a Roles"
       new: "Nuevo Rol"
-      show: "Ver Rol %{id}"
-      edit: "Editar Rol %{id}"
-      delete: "Borrar Rol %{id}"
+      show: "Ver Rol"
+      edit: "Editar Rol"
+      delete: "Borrar Rol"
       filter: "Filtrar Roles"
       clean: "Limpiar Filtro"
     message:

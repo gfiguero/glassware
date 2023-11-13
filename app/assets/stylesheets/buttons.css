@@ -2,14 +2,69 @@
    Notice: this style contains all the rules for buttons
 */
 
+.button {
+    @apply px-4 py-3;
+    @apply inline-flex items-center;
+    @apply text-base text-center font-medium leading-none;
+    @apply rounded-lg focus:ring-4 focus:outline-none shadow-lg;
+    @apply text-white;
+}
+
+.button-success {
+    @apply button;
+    @apply bg-green-500 hover:bg-green-600 focus:ring-green-200;
+}
+
+.button-danger {
+    @apply button;
+    @apply bg-red-600 hover:bg-red-800 focus:ring-red-400;
+}
+
+.button-warning {
+    @apply button;
+    @apply bg-yellow-400 hover:bg-yellow-500 focus:ring-yellow-200;
+}
+
+.button-info {
+    @apply button;
+    @apply bg-cyan-300 hover:bg-cyan-400 focus:ring-cyan-100;
+    @apply text-blue-900 font-bold;
+}
+
+.button-alert {
+    @apply button;
+    @apply bg-amber-300 hover:bg-amber-400 focus:ring-amber-200;
+    @apply text-amber-900 font-bold;
+}
+
+.button-error {
+    @apply button;
+    @apply bg-red-400 hover:bg-red-500 focus:ring-red-200;
+    @apply text-red-900 font-bold;
+}
+
 .button-show {
-    @apply px-3 py-3 text-xs font-medium text-center inline-flex items-center text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-200;
+    @apply button;
+    @apply bg-blue-500 hover:bg-blue-600 focus:ring-blue-200;
+}
+
+.button-new {
+    @apply button;
+    @apply bg-green-400 hover:bg-green-600 focus:ring-green-200;
 }
 
 .button-edit {
-    @apply px-3 py-3 text-xs font-medium text-center inline-flex items-center text-white bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-200;
+    @apply button;
+    @apply bg-yellow-400 hover:bg-yellow-500 focus:ring-yellow-200;
 }
 
 .button-delete {
-    @apply px-3 py-3 text-xs font-medium text-center inline-flex items-center text-white bg-red-400 rounded-lg hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-200;
+    @apply button;
+    @apply bg-red-400 hover:bg-red-600 focus:ring-red-200;
+}
+
+.button-filter {
+    @apply button;
+    @apply bg-gray-200 hover:bg-gray-300 focus:ring-gray-100;
+    @apply text-gray-800;
 }
