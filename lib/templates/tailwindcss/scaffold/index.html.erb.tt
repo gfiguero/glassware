@@ -1,33 +1,13 @@
-<%- permitted_attributes = ['name', 'email', 'id'] -%>
 <%- attributes.unshift(Rails::Generators::GeneratedAttribute.parse('id')) -%>
-<div class="w-full">
-  <div class="py-2 flex justify-between items-center">
-    <h1 class="font-bold text-4xl"><%%= I18n.t '<%= plural_table_name %>.properties.title' %></h1>
+<div class="container-fluid">
+  <div class="container-title">
+    <h1 class="title-text"><%%= I18n.t '<%= plural_table_name %>.properties.title' %></h1>
   </div>
 
   <%%= render "buttons" %>
 
-  <div class="py-2" data-controller="pagy-initializer"><%%== pagy_nav(@pagy) %></div>
+  <%%= render "table" %>
 
-  <div class="py-2">
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <table class="w-full border text-sm text-left text-gray-500">
-        <thead class="text-xs text-gray-700 bg-gray-200">
-        <tr>
-          <%- attributes.select{|attr| permitted_attributes.include?(attr.name)}.each do |attribute| -%>
-          <th scope="col" class="px-6 py-3"><%%= sort_link('<%= index_helper %>_path', I18n.t('<%= plural_table_name %>.attributes.<%= attribute.name %>'), '<%= attribute.name %>') %></th>
-          <%- end -%>
-          <th scope="col" class="px-6 py-3"><%%= I18n.t('operator.actions') %></th>
-        </tr>
-        </thead>
-        <tbody>
-        <%% @<%= plural_table_name %>.each.with_index do |<%= singular_table_name %>| %>
-          <%%= render partial: "<%= singular_table_name %>_row", locals: { <%= singular_table_name %>: <%= singular_table_name %> } %>
-        <%% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <%%= render "filter" %>
+
 </div>
-
-<%%= render "filter" %>

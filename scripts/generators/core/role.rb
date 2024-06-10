@@ -9,7 +9,7 @@ class RoleScaffold
   FIELDS = [
     'name:string',
     'usage:string',
-    'profiles:references{many_to_many,profiles_roles}',
+    'profiles:references',
   ].freeze
 
   def generate_command

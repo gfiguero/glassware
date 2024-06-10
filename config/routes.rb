@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :test_posts
+  resources :test_tags
+  resources :test_articles
 
   # Test Resources
   resources :test_tags do

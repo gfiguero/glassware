@@ -1,12 +1,16 @@
-<div class="flex flex-wrap gap-2 my-2">
+<div class="button-container">
 
-  <%= link_to 'Crear', test_create_path, class: 'button-new' %>
-  <%= link_to 'Editar', test_update_path, class: 'button-edit' %>
-  <%= link_to 'Eliminar', test_delete_path, class: 'button-delete' %>
+  <%= link_to 'Crear HTTP', test_create_path, class: 'button-new' %>
+  <%= link_to 'Crear TURBO', test_create_path, class: 'button-new', data: { turbo_stream: true } %>
+  <%= link_to 'Editar HTTP', test_update_path, class: 'button-edit' %>
+  <%= link_to 'Editar TURBO', test_update_path, class: 'button-edit', data: { turbo_stream: true } %>
+  <%= link_to 'Eliminar HTTP', test_delete_path, class: 'button-delete' %>
+  <%= link_to 'Eliminar Turbo', test_delete_path, class: 'button-delete', data: { turbo_stream: true } %>
+  <%= link_to 'Volver', root_path, class: 'button-general' %>
 
 </div>
 
-<div class="py-2 flex justify-between items-center">
+<div class="button-container">
   <h1 class="font-bold text-4xl">Demo Botones</h1>
 </div>
 
@@ -26,4 +30,14 @@
   <%= button_tag 'delete', class: 'button-delete' %>
 
   <%= button_tag 'filter', class: 'button-filter' %>
+</div>
+
+<div class="button-container">
+  <h1 class="font-bold text-4xl">Demo Notificaciones</h1>
+</div>
+
+<div class="notification <%= notification_class(:notice) %>">
+  <div class="notification-icon"><%= notification_icon('notice') %></div>
+  <div class="notification-message">El elemento de prueba ha sido creado El elemento de prueba ha sido creado El elemento de prueba ha sido creado</div>
+  <%= button_tag raw(icon('close', 'w-3 h-3')), type: 'button', class: "notification-close" %>
 </div>

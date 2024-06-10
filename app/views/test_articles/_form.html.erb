@@ -1,0 +1,50 @@
+<%= form_with(model: test_article, class: "form-container") do |form| %>
+
+  <div class="form-field">
+    <% invalid = test_article.errors.include?(:id) %>
+    <%= form.label :id, I18n.t('activerecord.attributes.test_article.id'), class: "form-label" %>
+    <%= form.text_field :id, class: "form-control #{'form-control-invalid' if invalid}" %>
+    <%= raw(error_message(invalid, test_article.errors.full_messages_for(:id))) %>
+  </div>
+
+  <div class="form-field">
+    <% invalid = test_article.errors.include?(:name) %>
+    <%= form.label :name, I18n.t('activerecord.attributes.test_article.name'), class: "form-label" %>
+    <%= form.text_field :name, class: "form-control #{'form-control-invalid' if invalid}" %>
+    <%= raw(error_message(invalid, test_article.errors.full_messages_for(:name))) %>
+  </div>
+
+  <div class="form-field">
+    <% invalid = test_article.errors.include?(:content) %>
+    <%= form.label :content, I18n.t('activerecord.attributes.test_article.content'), class: "form-label" %>
+    <%= form.text_area :content, rows: 4, class: "form-control #{'form-control-invalid' if invalid}" %>
+    <%= raw(error_message(invalid, test_article.errors.full_messages_for(:content))) %>
+  </div>
+
+  <div class="form-field">
+    <% invalid = test_article.errors.include?(:option) %>
+    <div class="form-checkbox-container">
+      <%= form.check_box :option, class: "form-checkbox-control" %>
+      <%= form.label :option, I18n.t('activerecord.attributes.test_article.option'), class: "form-checkbox-label" %>
+    </div>
+    <%= raw(error_message(invalid, test_article.errors.full_messages_for(:option))) %>
+  </div>
+
+  <div class="form-field">
+    <% invalid = test_article.errors.include?(:password) %>
+    <%= form.label :password, I18n.t('activerecord.attributes.test_article.password'), class: "form-label" %>
+    <%= form.password_field :password, class: "form-control #{'form-control-invalid' if invalid}" %>
+    <%= raw(error_message(invalid, test_article.errors.full_messages_for(:password))) %>
+  </div>
+
+  <div class="form-field">
+    <% invalid = test_article.errors.include?(:password_confirmation) %>
+    <%= form.label :password_confirmation, I18n.t('activerecord.attributes.test_article.password_confirmation'), class: "form-label" %>
+    <%= form.password_field :password_confirmation, class: "form-control #{'form-control-invalid' if invalid}" %>
+    <%= raw(error_message(invalid, test_article.errors.full_messages_for(:password_confirmation))) %>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit I18n.t('test_articles.actions.create'), class: "form-submit" %>
+  </div>
+<% end %>

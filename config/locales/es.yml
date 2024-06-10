@@ -182,6 +182,22 @@ es:
         col_sep: "Separador de columnas"
         col_sep_help: "Deje en blanco para el de defecto ('%{value}')" # value is default_col_sep
 
+  activerecord:
+    model:
+      map: "Plaza"
+    attributes:
+      profile:
+        id: "ID"
+        name: "Nombre"
+        description: "Descripción"
+      test_article:
+        id: "ID"
+        name: "Nombre"
+        content: "Contenido"
+        option: "Opción"
+        password: "Password"
+        password_confirmation: "Confirmación de Password"
+
   operator:
     actions: "Acciones"
     close: "Cerrar"
@@ -196,9 +212,6 @@ es:
   maps:
     properties:
       title: "Plazas"
-    attributes:
-      id: "ID"
-      name: "Nombre"
     actions:
       index: "Volver a Plazas"
       new: "Nueva Plaza"
@@ -211,9 +224,6 @@ es:
   users:
     properties:
       title: "Usuarios"
-    attributes:
-      id: "ID"
-      name: "Nombre"
       email: "Email"
     actions:
       index: "Volver a Usuarios"
@@ -227,9 +237,6 @@ es:
   groups:
     properties:
       title: "Grupos"
-    attributes:
-      id: "ID"
-      name: "Nombre"
     actions:
       index: "Volver a Grupos"
       new: "Nuevo Grupo"
@@ -242,9 +249,6 @@ es:
   profiles:
     properties:
       title: "Perfiles"
-    attributes:
-      id: "ID"
-      name: "Nombre"
     actions:
       index: "Volver a Perfiles"
       new: "Nuevo Perfil"
@@ -257,9 +261,6 @@ es:
   roles:
     properties:
       title: "Roles"
-    attributes:
-      id: "ID"
-      name: "Nombre"
     actions:
       index: "Volver a Roles"
       new: "Nuevo Rol"
@@ -272,3 +273,20 @@ es:
       created: "Rol creado exitosamente"
       updated: "Rol actualizado exitosamente"
       destroyed: "Rol eliminado exitosamente"
+
+  test_articles:
+    properties:
+      title: "Artículos de prueba"
+    actions:
+      index: "Volver a Artículos"
+      new: "Nuevo Artículo"
+      create: "Crear Artículo"
+      show: "Ver Artículo"
+      edit: "Editar Artículo"
+      delete: "Borrar Artículo"
+      filter: "Filtrar Artículos"
+      clean: "Limpiar Filtro"
+    message:
+      created: "Artículo creado exitosamente"
+      updated: "Artículo actualizado exitosamente"
+      destroyed: "Artículo eliminado exitosamente"

@@ -6,4 +6,6 @@ class Profile < ApplicationRecord
   has_many :roles, through: :profiles_roles
   has_many :groups_profiles, dependent: :destroy
   has_many :groups, through: :groups_profiles
+
+  validates :name, :description, presence: true
 end

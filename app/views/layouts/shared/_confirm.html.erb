@@ -1,0 +1,13 @@
+<dialog id="turbo-confirm" class="rounded-lg shadow text-center">
+
+  <div class="relative p-4 text-center bg-white rounded-lg shadow">
+    <%= form_tag method: :delete do %>
+      <%= icon('delete', 'text-gray-400 w-11 h-11 mb-3.5 mx-auto') %>
+      <p class="mb-4 text-gray-500 dark:text-gray-300">Are you sure you want to delete this item?</p>
+      <%= button_tag 'Confirmar', value: 'confirm', class: 'button-danger' %>
+      <%= button_tag 'Cancelar', value: 'cancel', class: 'button-filter' %>
+      <%= button_tag 'Cerrar', value: 'close', class: 'button-filter' %>
+    <% end %>
+  </div>
+
+</dialog>

@@ -23,14 +23,13 @@ module ApplicationHelper
     "filter_by_#{attribute}"
   end
 
-  def sort_link(path, link_text, column, sort_column = nil, sort_direction = nil)
-    link_text ||= path
-    if sort_column == column
-      return link_to raw(link_text + icon('chevron-up', 'w-5 h-2')), send(path, request.params.merge(sort_column: column, sort_direction: 'desc' )), { class: 'flex items-center'} if sort_direction == 'asc'
-      return link_to raw(link_text + icon('chevron-down', 'w-5 h-2')), send(path, request.params.merge( sort_column: column, sort_direction: 'asc' )), { class: 'flex items-center'} if sort_direction == 'desc'
-    else
-      link_to raw(link_text + icon('chevron-sort', 'w-5 h-3')), send(path, request.params.merge( sort_column: column, sort_direction: 'asc' )), { class: 'flex items-center'}
-    end
+  def sort_link(path, text, column)
+    sort_column = params[:sort_column]
+    sort_direction = params[:sort_direction]
+    text ||= path
+    return link_to raw(text + icon('chevron-up', 'w-5 h-2')), send(path, request.params.merge(sort_column: column, sort_direction: 'desc' )), { class: 'flex items-center'} if sort_column == column and sort_direction == 'asc'
+    return link_to raw(text + icon('chevron-down', 'w-5 h-2')), send(path, request.params.merge( sort_column: column, sort_direction: 'asc' )), { class: 'flex items-center'} if sort_column == column and sort_direction == 'desc'
+    link_to raw(text + icon('chevron-sort', 'w-5 h-3')), send(path, request.params.merge( sort_column: column, sort_direction: 'asc' )), { class: 'flex items-center'}
   end
 
   def notification_icon(notification_key)
@@ -46,7 +45,15 @@ module ApplicationHelper
     end
   end
 
-  def icon_text(string)
-    raw('<div class="ml-2">' + I18n.t(string) + '</div>')
+  def icon_text(text)
+    raw('<div class="ml-2">' + text + '</div>')
+  end
+
+  def error_message(invalid, messages)
+    if invalid
+      errors = ''
+      messages.each { |message| errors += '<div class="form-control-message">' + message + '</div>' }
+      return errors
+    end
   end
 end

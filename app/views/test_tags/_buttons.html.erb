@@ -1,0 +1,19 @@
+<div class="button-container">
+
+  <% if %w[index].include? action_name %>
+    <%= button_tag raw(icon('filter') + icon_text(I18n.t('test_tags.actions.filter'))), name: 'filter', type: 'button', class: "button-filter", data: { 'drawer-target': "drawer-filter", 'drawer-show': "drawer-filter", 'aria-controls': "drawer-filter" } %>
+  <% end %>
+
+  <% unless %w[index].include? action_name %>
+    <%= link_to raw(icon('back') + icon_text(I18n.t('test_tags.actions.index'))), test_tags_path, class: "button-general" %>
+  <% end %>
+
+  <% unless %w[new create edit update].include? action_name %>
+    <%= link_to raw(icon('new') + icon_text(I18n.t('test_tags.actions.new'))), new_test_tag_path, class: "button-new" %>
+  <% end %>
+
+  <% unless %w[new create edit update index].include? action_name %>
+    <%= link_to raw(icon('edit') + icon_text(I18n.t('test_tags.actions.edit'))), edit_test_tag_path(@test_tag), class: "button-edit" %>
+  <% end %>
+
+</div>

@@ -79,7 +79,7 @@ class ProfilesController < ApplicationController
   end
 
   def set_profiles
-    @profiles = Profile.accessible_by(current_ability)
+    #@profiles = Profile.accessible_by(current_ability)
     @profiles = @profiles.send(sort_scope(sort_params[:sort_column].to_s), sort_params[:sort_direction]) if sort_params.present?
     filter_params.each { |attribute, value| @profiles = @profiles.send(filter_scope(attribute), value) } if filter_params.present?
   end

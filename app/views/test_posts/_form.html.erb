@@ -1,0 +1,27 @@
+<%= form_with(model: test_post, class: "form-container") do |form| %>
+
+  <div class="form-field">
+    <% invalid = test_post.errors.include?(:id) %>
+    <%= form.label :id, I18n.t('activerecord.attributes.test_post.id'), class: "form-label" %>
+    <%= form.text_field :id, class: "form-control #{'form-control-invalid' if invalid}" %>
+    <%= raw(error_message(invalid, test_post.errors.full_messages_for(:id))) %>
+  </div>
+
+  <div class="form-field">
+    <% invalid = test_post.errors.include?(:content) %>
+    <%= form.label :content, I18n.t('activerecord.attributes.test_post.content'), class: "form-label" %>
+    <%= form.text_area :content, rows: 4, class: "form-control #{'form-control-invalid' if invalid}" %>
+    <%= raw(error_message(invalid, test_post.errors.full_messages_for(:content))) %>
+  </div>
+
+  <div class="form-field">
+    <% invalid = test_post.errors.include?(:test_article_id) %>
+    <%= form.label :test_article_id, I18n.t('activerecord.attributes.test_post.test_article_id'), class: "form-label" %>
+    <%= form.text_field :test_article_id, class: "form-control #{'form-control-invalid' if invalid}" %>
+    <%= raw(error_message(invalid, test_post.errors.full_messages_for(:test_article_id))) %>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit I18n.t('test_posts.actions.create'), class: "form-submit" %>
+  </div>
+<% end %>

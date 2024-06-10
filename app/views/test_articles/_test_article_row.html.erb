@@ -1,0 +1,13 @@
+<tr class="table-row" id="test_article_<%= test_article.id %>">
+  <td class="table-cell"><%= test_article.id %></td>
+  <td class="table-cell"><%= test_article.name %></td>
+  <td class="table-actions">
+    <%= link_to raw(icon('show', 'w-4 h-4')), test_article, class: "button-row button-show", data: {'tooltip-target': "tooltip-show_#{test_article.id}", 'tooltip-placement': "left"} %>
+    <div id="tooltip-show_<%= test_article.id %>" role="tooltip" class="button-tooltip invisible transition-opacity duration-300 opacity-0 tooltip"><%= I18n.t('test_articles.actions.show', id: test_article.id) %><div class="tooltip-arrow" data-popper-arrow></div></div>
+    <%= link_to raw(icon('edit', 'w-4 h-4')), edit_test_article_path(test_article), class: "button-row button-edit", data: {'tooltip-target': "tooltip-edit_#{test_article.id}", 'tooltip-placement': "left"} %>
+    <div id="tooltip-edit_<%= test_article.id %>" role="tooltip" class="button-tooltip invisible transition-opacity duration-300 opacity-0 tooltip"><%= I18n.t('test_articles.actions.edit', id: test_article.id) %><div class="tooltip-arrow" data-popper-arrow></div></div>
+    <%= link_to raw(icon('delete', 'w-4 h-4')), test_article, class: "button-row button-delete", method: :delete, data: {'tooltip-target': "tooltip-delete_#{test_article.id}", 'tooltip-placement': "left"} %>
+    <div id="tooltip-delete_<%= test_article.id %>" role="tooltip" class="button-tooltip invisible transition-opacity duration-300 opacity-0 tooltip"><%= I18n.t('test_articles.actions.delete', id: test_article.id) %><div class="tooltip-arrow" data-popper-arrow></div></div>
+    <%= link_to raw(icon('delete', 'w-4 h-4')), test_article, method: :delete, class: "button-row button-delete", data: { turbo_method: :delete, turbo_confirm: 'Seguro?' } %>
+  </td>
+</tr>

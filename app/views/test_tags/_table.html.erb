@@ -1,0 +1,18 @@
+<div class="table-paginator" data-controller="pagy-initializer"><%== pagy_nav(@pagy) %></div>
+
+<div class="table-container">
+  <table class="table-index">
+    <thead class="table-header">
+    <tr>
+      <th scope="col" class="table-attribute"><%= sort_link('test_tags_path', I18n.t('activerecord.attributes.test_tag.id'), 'id') %></th>
+      <th scope="col" class="table-attribute"><%= sort_link('test_tags_path', I18n.t('activerecord.attributes.test_tag.name'), 'name') %></th>
+      <th scope="col" class="table-attribute-actions"><%= I18n.t('operator.actions') %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @test_tags.each.with_index do |test_tag| %>
+      <%= render partial: "test_tag_row", locals: { test_tag: test_tag } %>
+    <% end %>
+    </tbody>
+  </table>
+</div>

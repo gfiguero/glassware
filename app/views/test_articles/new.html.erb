@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <div class="container-title">
+    <h1 class="title-text"><%= I18n.t 'test_articles.properties.title' %></h1>
+    <h3 class="subtitle-text"><%= I18n.t 'test_articles.actions.new', id: @test_article.id %></h3>
+  </div>
+
+  <%= render "buttons" %>
+
+  <%= render "form", test_article: @test_article %>
+
+</div>

@@ -2,12 +2,22 @@
    Notice: this style contains all the rules for buttons
 */
 
+.button-container {
+    @apply my-2;
+    @apply flex flex-wrap gap-2;
+}
+
 .button {
     @apply px-4 py-3;
-    @apply inline-flex items-center;
+    @apply inline-flex justify-center items-center;
     @apply text-base text-center font-medium leading-none;
     @apply rounded-lg focus:ring-4 focus:outline-none shadow-lg;
     @apply text-white;
+}
+
+.button-general {
+    @apply button;
+    @apply bg-blue-500 hover:bg-blue-600 focus:ring-blue-200;
 }
 
 .button-success {
@@ -67,4 +77,26 @@
     @apply button;
     @apply bg-gray-200 hover:bg-gray-300 focus:ring-gray-100;
     @apply text-gray-800;
+}
+
+.button-row {
+    @apply px-3 py-3;
+}
+
+.button-close {
+    @apply button button-row;
+    @apply bg-transparent hover:bg-gray-200 shadow-none;
+    @apply absolute top-2.5 right-2.5;
+    @apply text-gray-400 text-sm;
+}
+
+.button-tooltip {
+    @apply absolute inline-block;
+    @apply rounded-lg shadow-sm overflow-hidden;
+    @apply text-sm text-white font-medium bg-gray-900;
+    @apply px-3 py-2 z-10;
+}
+
+.button-block {
+    @apply w-full;
 }

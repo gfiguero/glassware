@@ -9,8 +9,8 @@ class GroupScaffold
   FIELDS = [
     'name:string',
     'kind:string',
-    'users:references{many_to_many,users_groups}',
-    'profiles:references{many_to_many,groups_profiles}',
+    'users:references',
+    'profiles:references',
   ].freeze
 
   def generate_command

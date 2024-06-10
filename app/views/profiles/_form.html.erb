@@ -1,49 +1,37 @@
 <%= form_with(model: profile, class: "contents") do |form| %>
-  <% if profile.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
-      <ul>
-        <% profile.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="my-5">
-    <%= form.label :id %>
-    <%= form.text_field :id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="form-field">
+    <% invalid = profile.errors.include?(:id) %>
+    <%= form.label :id, I18n.t('activerecord.attributes.profile.id'), class: "form-label" %>
+    <%= form.text_field :id, class: "form-control #{'form-control-invalid' if invalid}" %>
+    <%= raw(error_message(invalid, profile.errors.full_messages_for(:id))) %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="form-field">
+    <% invalid = profile.errors.include?(:name) %>
+    <%= form.label :name, I18n.t('activerecord.attributes.profile.name'), class: "form-label" %>
+    <%= form.text_field :name, class: "form-control #{'form-control-invalid' if invalid}" %>
+    <%= raw(error_message(invalid, profile.errors.full_messages_for(:name))) %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :description %>
-    <%= form.text_area :description, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="form-field">
+    <% invalid = profile.errors.include?(:description) %>
+    <%= form.label :description, I18n.t('activerecord.attributes.profile.description'), class: "form-label" %>
+    <%= form.text_area :description, rows: 4, class: "form-control #{'form-control-invalid' if invalid}" %>
+    <%= raw(error_message(invalid, profile.errors.full_messages_for(:description))) %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :usage %>
-    <%= form.text_field :usage, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="form-field">
+    <% invalid = profile.errors.include?(:usage) %>
+    <%= form.label :usage, I18n.t('activerecord.attributes.profile.usage'), class: "form-label" %>
+    <%= form.text_field :usage, class: "form-control #{'form-control-invalid' if invalid}" %>
+    <%= raw(error_message(invalid, profile.errors.full_messages_for(:usage))) %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :initial_role_ids %>
-    <%= form.text_area :initial_role_ids, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :roles_id %>
-    <%= form.text_field :roles_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :groups_id %>
-    <%= form.text_field :groups_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="form-field">
+    <% invalid = profile.errors.include?(:initial_role_ids) %>
+    <%= form.label :initial_role_ids, I18n.t('activerecord.attributes.profile.initial_role_ids'), class: "form-label" %>
+    <%= form.text_area :initial_role_ids, rows: 4, class: "form-control #{'form-control-invalid' if invalid}" %>
   </div>
 
   <div class="inline">
